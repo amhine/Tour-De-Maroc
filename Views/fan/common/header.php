@@ -66,6 +66,64 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
         }
+        .news-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+
+        .podium-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .podium-item:hover {
+            transform: translateX(10px);
+        }
+
+        .jersey {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .yellow-jersey {
+            background: var(--tdf-yellow);
+        }
+
+        .green-jersey {
+            background: #1d8348;
+        }
+
+        .polka-jersey {
+            background: white;
+            position: relative;
+        }
+
+        .polka-jersey::after {
+            content: '•';
+            color: red;
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 

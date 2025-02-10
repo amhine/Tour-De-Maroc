@@ -2,52 +2,56 @@
     require_once __DIR__ . '/common/header.php';
 ?>
     
-    <!-- Hero Section -->
-    <header class="relative h-[900px]">
+    <!-- Hero Section with Podium -->
+    <header class="relative h-screen min-h-[600px]">
         <div class="absolute inset-0">
-            <img src="  " alt="Tour de France cyclists" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/30"></div>
+            <img src="" alt="Tour de France cyclists" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
         </div>
-        <div class="relative container mx-auto px-4 py-20">
-            <h1 class="text-white text-6xl font-extrabold max-w-3xl leading-tight">
-                DÉCOUVREZ LE PARCOURS DU TOUR DE FRANCE 2025
-            </h1>
-            <button class="mt-8 bg-yellow-400 text-black px-8 py-3 font-bold hover:bg-yellow-300 transition-colors">
-                VOIR LA VIDÉO
-            </button>
+
+        <div class="relative container mx-auto px-4 py-20 flex justify-between items-start">
+            <!-- Left Content -->
+            <div class="max-w-2xl">
+                <h1 class="text-white text-6xl font-extrabold leading-tight mb-8">
+                    DÉCOUVREZ LE PARCOURS DU TOUR DE FRANCE 2025
+                </h1>
+                <button class="bg-yellow-400 text-black px-8 py-3 font-bold hover:bg-yellow-300 transition-colors">
+                    VOIR LA VIDÉO
+                </button>
+            </div>
+
+            <!-- Right Podium -->
+            <div class="w-96 bg-black/80 p-6 rounded-lg">
+                <h2 class="text-white text-xl font-bold mb-4">PALMARÈS 2024</h2>
+                <div class="space-y-4">
+                    <!-- Podium Items -->
+                    <div class="podium-item">
+                        <div class="jersey yellow-jersey"></div>
+                        <div class="text-white">
+                            <div class="font-bold">T. POGACAR</div>
+                            <div class="text-sm text-gray-400">83h 38' 56"</div>
+                        </div>
+                    </div>
+                    <!-- More podium items -->
+                </div>
+            </div>
+        </div>
+
+        <!-- News Cards -->
+        <div class="relative container mx-auto px-4 -mb-32">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="news-card">
+                    <img src="/placeholder.svg" alt="News" class="w-full aspect-video object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <span class="bg-yellow-400 text-black px-2 py-1 text-sm font-bold">ACTUALITÉS</span>
+                        <h3 class="text-white text-xl font-bold mt-2">TROUVEZ VOS PROCHAINS DÉFIS CYCLO-SPORTIFS !</h3>
+                    </div>
+                </div>
+                <!-- More news cards -->
+            </div>
         </div>
     </header>
 
-    <!-- News Cards Section -->
-    <section class="container mx-auto px-4 -mt-32 relative z-10">
-        <div class="grid grid-cols-3 gap-6">
-            <div class="bg-black text-white group cursor-pointer">
-                <div class="relative aspect-video overflow-hidden">
-                    <img src="/placeholder.svg" alt="Cyclo-sportifs"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                </div>
-                <div class="p-4">
-                    <div class="text-yellow-400 text-sm font-bold mb-2">ACTUALITÉS</div>
-                    <h2 class="text-xl font-bold">TROUVEZ VOS PROCHAINS DÉFIS CYCLO-SPORTIFS !</h2>
-                </div>
-            </div>
-
-            <div class="bg-black text-white group cursor-pointer">
-                <div class="relative aspect-video overflow-hidden">
-                    <img src="/placeholder.svg" alt="Cyclo-sportifs"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                </div>
-                <div class="p-4">
-                    <div class="text-yellow-400 text-sm font-bold mb-2">ACTUALITÉS</div>
-                    <h2 class="text-xl font-bold">TROUVEZ VOS PROCHAINS DÉFIS CYCLO-SPORTIFS !</h2>
-                </div>
-            </div>
-
-            <!-- Repeat for other news cards -->
-        </div>
-    </section>
-    
-    <!-- Main Section -->
     <main class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- News Section -->
