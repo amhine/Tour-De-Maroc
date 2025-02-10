@@ -1,92 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour de France - Actualités</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-white">
-
-    <!-- Top Navigation Bar -->
-    <nav class="bg-black text-white text-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-12">
-                <!-- Left Navigation -->
-                <div class="flex items-center space-x-6">
-                    <img src="/placeholder.svg" alt="Tissot" class="h-4">
-                    <a href="#" class="hover:text-yellow-400">AUTRES ÉPREUVES</a>
-                    <a href="#" class="hover:text-yellow-400">DIFFUSEURS</a>
-                    <a href="#" class="hover:text-yellow-400">MÉDIAS</a>
-                    <a href="#" class="hover:text-yellow-400">JEUX</a>
-                </div>
-
-                <!-- Right Navigation -->
-                <div class="flex items-center space-x-6">
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="hover:text-yellow-400">TOUR OPÉRATEURS</a>
-                        <a href="#" class="hover:text-yellow-400">MONTOUR</a>
-                        <a href="#" class="hover:text-yellow-400">VIP</a>
-                        <a href="#" class="hover:text-yellow-400">MAGASINS</a>
-                        <a href="#" class="hover:text-yellow-400">BOUTIQUE</a>
-                    </div>
-                    <button class="bg-white text-black px-4 py-1 text-xs font-bold hover:bg-yellow-400">
-                        JE ME CONNECTE
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Navigation -->
-    <nav class="bg-white shadow-md relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <!-- Left Navigation -->
-                <div class="flex items-center space-x-6">
-                    <a href="Home.html" class="font-bold hover:text-yellow-400">HOME</a>
-                    <a id="parcours2025" class="font-bold hover:text-yellow-400">PARCOURS 2025</a>
-                    <a href="#" class="font-bold hover:text-yellow-400">EDITION 2024</a>
-                    <a href="#" class="font-bold hover:text-yellow-400">GRANDS DÉPARTS</a>
-                    <a href="Culture.html" class="font-bold hover:text-yellow-400">CULTURE TOUR</a>
-                    <a href="#" class="font-bold hover:text-yellow-400">VIDÉOS</a>
-                </div>
-
-                <!-- Right Navigation -->
-                <div class="flex items-center space-x-6">
-                    <a href="#" class="font-bold hover:text-yellow-400">FANTASY</a>
-                    <a href="#" class="font-bold hover:text-yellow-400">CLUB</a>
-                    <div class="flex items-center space-x-4">
-                        <button class="flex items-center space-x-1">
-                            <span>FR</span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <button class="text-xl">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <button class="text-xl">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+<?php 
+    require_once __DIR__ . '/common/header.php';
+?>
+  
     <main class="container mx-auto px-4 py-12 max-w-7xl">
         <!-- Header -->
         <header class="mb-12">
@@ -206,22 +121,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white mt-24 py-12">
-        <div class="container mx-auto px-4">
-            <img src="/placeholder.svg" alt="ASO" class="h-8 mb-8">
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
-                <a href="#" class="hover:text-yellow-400 transition-colors">ESPACE PRO</a>
-                <a href="#" class="hover:text-yellow-400 transition-colors">ACCRÉDITATIONS</a>
-                <a href="#" class="hover:text-yellow-400 transition-colors">CONTACTS</a>
-                <a href="#" class="hover:text-yellow-400 transition-colors">DÉFICIENTS VISUELS</a>
-                <a href="#" class="hover:text-yellow-400 transition-colors">POLITIQUE DE CONFIDENTIALITÉ</a>
-                <a href="#" class="hover:text-yellow-400 transition-colors">VOS DROITS RGPD</a>
-            </div>
-            <div class="mt-8 text-center text-sm text-gray-500">
-                © ASO
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<?php 
+    require_once __DIR__ . '/common/footer.php';
+?>
