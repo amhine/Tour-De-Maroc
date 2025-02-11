@@ -2,11 +2,10 @@
 
 namespace Controllers;
 
-class HomeController
+class VideoController
 {
-
     public function index(): void
     {
-        require './Views/fan/Home.php';
+        require './Views/fan/Video.php';
     }
 }
