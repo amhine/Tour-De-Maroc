@@ -115,6 +115,7 @@ CREATE TABLE QA (
 );
 
 CREATE TABLE Favorite (
+<<<<<<< HEAD
                           favorite_id SERIAL,
                           fk_user_id INT NOT NULL,
                           fk_cycliste_id INT NOT NULL,
@@ -131,6 +132,23 @@ CREATE TABLE ResultsPerEtape (
                                  PRIMARY KEY (id),
                                  FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
                                  FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+=======
+    favorite_id SERIAL,
+    fk_user_id INT NOT NULL,
+    fk_cyclisme_id INT NOT NULL,
+    PRIMARY KEY (favorite_id)
+
+);
+
+CREATE TABLE ResultsPerEtape (
+    id SERIAL,
+    fk_cyliste_id INT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    duree TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
+    FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+>>>>>>> 827979a (remove unnecessary table)
 );
 
 CREATE TABLE Likes (
