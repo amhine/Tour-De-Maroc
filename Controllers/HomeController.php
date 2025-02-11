@@ -1,8 +1,11 @@
 <?php
 
-namespace Younes\TourDeMaroc\Controllers;
+namespace Controllers;
 
 class HomeController
 {
 
+    public function index() {
+        echo "Hello";
+    }
 }
