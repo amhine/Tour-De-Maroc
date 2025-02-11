@@ -48,7 +48,18 @@ class CategorieController
 
     public function update()
     {
-        echo "CategorieController update";
+        try {
+            $categorie_id = Validator::ValidateData($_POST['categorie_id']);
+            $categorie_nom = Validator::ValidateData($_POST['categorie_name']);
+            $categorie = new Categories($categorie_id, $categorie_nom);
+            $categorieRepo = new CategorieRepository($this->db);
+            $categorieRepo->update($categorie);
+            $this->session->set('Success', 'Categorie modifiée avec succès');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } catch (\Exception $e) {
+            $this->session->set('Error', $e->getMessage());
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
     }
 
     public function destroy()
