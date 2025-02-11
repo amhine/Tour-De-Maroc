@@ -22,6 +22,7 @@ $route->add('GET', '/Video', [VideoController::class, 'index']);
 $route->add('GET', '/Grande_Depart', [GDController::class, 'index']);
 $route->add('GET', '/Login', [AuthController::class, 'login']);
 $route->add('GET', '/Register', [AuthController::class, 'register']);
+$route->add('GET', '/Register', [AuthController::class, 'register']);
 
 
 
