@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/ParcoursController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Middleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Middleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/Interfaces/IUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/Interfaces/IUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/fan/common/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/fan/common/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +40,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "UI-Pages",
     "last_opened_file_path": "C:/laragon/www/Tour-De-Maroc",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
