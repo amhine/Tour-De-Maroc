@@ -1,3 +1,6 @@
+<?php
+require_once 'common/header.php';
+?>
 
 <main class="container mx-auto px-4 py-8 max-w-4xl">
     <!-- Question Card -->
@@ -139,3 +142,8 @@
         </div>
     </div>
 </main>
+
+<?php
+require_once 'common/footer.php';
+?>
+
