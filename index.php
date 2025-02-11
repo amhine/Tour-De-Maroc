@@ -12,6 +12,8 @@ use Controllers\CultureController;
 use Controllers\AuthController;
 
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 $route = new Router();
 
 $route->add('GET', '/', [HomeController::class, 'index']);
@@ -21,7 +23,6 @@ $route->add('GET', '/Culture', [CultureController::class, 'index']);
 $route->add('GET', '/Video', [VideoController::class, 'index']);
 $route->add('GET', '/Grande_Depart', [GDController::class, 'index']);
 $route->add('GET', '/Login', [AuthController::class, 'login']);
-$route->add('GET', '/Register', [AuthController::class, 'register']);
 $route->add('GET', '/Register', [AuthController::class, 'register']);
 
 
