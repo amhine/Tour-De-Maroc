@@ -79,6 +79,4 @@ class CategorieRepository implements ICategorieRepository
             return null;
         }
     }
-
-
 }
