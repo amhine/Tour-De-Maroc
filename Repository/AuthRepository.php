@@ -2,11 +2,13 @@
 
 namespace Repository;
 
+
+use Exception;
 class AuthRepository
 {
     private $db;
     private $session;
-    private $table = "Persons";
+    private $table = "Users";
 
     public function __construct($db, $session)
     {
