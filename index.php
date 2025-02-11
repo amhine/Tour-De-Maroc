@@ -33,7 +33,8 @@ $route->add('GET', '/Logout', [AuthController::class, 'logout']);
 $route->add('GET', '/Profile', [AuthController::class, 'profile']);
 $route->add('POST', '/Profile', [AuthController::class, 'update']);
 $route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
-$route->add('POST', '/ForgetPassword', [AuthController::class, 'resetpassword']);
+$route->add('POST', '/ForgetPassword', [AuthController::class, 'SendResetToken']);
+$route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
 
 //categorie routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
