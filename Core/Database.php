@@ -1,9 +1,9 @@
 <?php
 
 // l'Utilisation    Database::getConnection()->conn
-namespace Younes\TourDeMaroc\Core;
+namespace Core;
 
-use PDO, PDOException;
+use PDO, Exception;
 class Database
 {
     private static $hasInstance = null;
@@ -12,7 +12,6 @@ class Database
     private $password;
     private $dbname;
     private $host;
-
 
     private function __construct() {
         $this->user = 'younes';
@@ -29,14 +28,12 @@ class Database
             echo 'Error DB: ' . $e->getMessage();
         }
     }
-
     public static function getConnection() {
         if(self::$hasInstance === null) {
           self::$hasInstance = new Database();
         }
         return self::$hasInstance;
     }
-
     public function __clone() {}
 
 }
