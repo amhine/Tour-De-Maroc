@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#63 create methods to update categorie">
-      <change beforePath="$PROJECT_DIR$/Repository/CategorieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/CategorieRepository.php" afterDir="false" />
+    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#63 create categoriecontroller method to handle the update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CategorieController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,71 @@
       <option name="project" value="LOCAL" />
       <updated>1739301326857</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="#63 create methods to get categorie by Id">
+      <option name="closed" value="true" />
+      <created>1739301352404</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301352404</updated>
+    </task>
+    <task id="LOCAL-00008" summary="empty">
+      <option name="closed" value="true" />
+      <created>1739301398187</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301398187</updated>
+    </task>
+    <task id="LOCAL-00009" summary="#63 adding categorie routes">
+      <option name="closed" value="true" />
+      <created>1739301609388</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301609388</updated>
+    </task>
+    <task id="LOCAL-00010" summary="#63 add categories controller boilerplate">
+      <option name="closed" value="true" />
+      <created>1739301623309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301623309</updated>
+    </task>
+    <task id="LOCAL-00011" summary="#63 create the index method in  CategorieController.php">
+      <option name="closed" value="true" />
+      <created>1739301843146</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301843146</updated>
+    </task>
+    <task id="LOCAL-00012" summary="#63 update the categorie entity to handle case where the id is null">
+      <option name="closed" value="true" />
+      <created>1739301985337</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301985337</updated>
+    </task>
+    <task id="LOCAL-00013" summary="#63 create the controller method that will trigger  to create new categorie">
+      <option name="closed" value="true" />
+      <created>1739302016529</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739302016529</updated>
+    </task>
+    <task id="LOCAL-00014" summary="#63 create categoriecontroller method to handle the update">
+      <option name="closed" value="true" />
+      <created>1739302064332</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739302064332</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +198,14 @@
     <MESSAGE value="#63 create methods getAll &amp; create" />
     <MESSAGE value="#63 create methods delete" />
     <MESSAGE value="#63 create methods to update categorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="#63 create methods to update categorie" />
+    <MESSAGE value="#63 create methods to get categorie by Id" />
+    <MESSAGE value="empty" />
+    <MESSAGE value="#63 adding categorie routes" />
+    <MESSAGE value="#63 add categories controller boilerplate" />
+    <MESSAGE value="#63 create the index method in  CategorieController.php" />
+    <MESSAGE value="#63 update the categorie entity to handle case where the id is null" />
+    <MESSAGE value="#63 create the controller method that will trigger  to create new categorie" />
+    <MESSAGE value="#63 create categoriecontroller method to handle the update" />
+    <option name="LAST_COMMIT_MESSAGE" value="#63 create categoriecontroller method to handle the update" />
   </component>
 </project>

@@ -64,7 +64,16 @@ class CategorieController
 
     public function destroy()
     {
-        echo "CategorieController destroy";
+       try {
+            $categorie_id = Validator::ValidateData($_POST['categorie_id']);
+            $categorieRepo = new CategorieRepository($this->db);
+            $categorieRepo->delete($categorie_id);
+            $this->session->set('Success', 'Categorie supprimée avec succès');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } catch (\Exception $e) {
+            $this->session->set('Error', $e->getMessage());
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+       }
     }
 
 }
