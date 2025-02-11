@@ -1,7 +1,7 @@
 <?php
 
 // l'Utilisation    Database::getConnection()->conn
-namespace Younes\TourDeMaroc\Core;
+namespace Core;
 
 use PDO, PDOException;
 class Database

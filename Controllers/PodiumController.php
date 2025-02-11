@@ -2,10 +2,10 @@
 
 namespace Controllers;
 
-class HomeController
+class PodiumController
 {
     public function index(): void
     {
-        require './Views/fan/Home.php';
+        require './Views/fan/Podium.php';
     }
 }

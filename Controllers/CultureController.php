@@ -1,11 +1,12 @@
 <?php
 
+
 namespace Controllers;
 
-class HomeController
+class CultureController
 {
     public function index(): void
     {
-        require './Views/fan/Home.php';
+        require './Views/fan/Culture.php';
     }
 }
