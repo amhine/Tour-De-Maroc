@@ -121,20 +121,16 @@ CREATE TABLE Favorite (
     fk_cyclisme_id INT NOT NULL,
     PRIMARY KEY (favorite_id)
 
-); -- MANY TO MANY Cyliste
-
-CREATE TABLE Equipe_cyliste(
-    fk_equipe_id INT NOT NULL,
-    fk_cycliste_id INT NOT NULL,
-    PRIMARY KEY (fk_equipe_id, fk_cycliste_id)
 );
 
 CREATE TABLE ResultsPerEtape (
     id SERIAL,
     fk_cyliste_id INT NOT NULL,
     fk_etape_id INT NOT NULL,
-    duree, --- stiil need to know the type
-    PRIMARY KEY (id);
+    duree TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
+    FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
 );
 
 CREATE TABLE Likes (
