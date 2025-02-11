@@ -41,7 +41,15 @@ class CategorieRepository implements ICategorieRepository
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $sql = "DELETE FROM $this->table WHERE categorie_id = :categorie_id";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':categorie_id', $id);
+            return $stmt->execute();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
     }
 
     public function update($categorie)
