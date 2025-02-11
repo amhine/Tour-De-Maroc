@@ -3,7 +3,7 @@
 namespace Repository;
 
 use Repository\Interfaces\ICategorieRepository;
-
+use PDO;
 class CategorieRepository implements ICategorieRepository
 {
     private $db;
@@ -16,12 +16,27 @@ class CategorieRepository implements ICategorieRepository
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        $sql = "SELECT * FROM $this->table";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     public function create($categorie)
     {
-        // TODO: Implement create() method.
+        $sql = "INSERT INTO $this->table (categorie_name) VALUES (:categorie_name)";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind¨Param(':categorie_name', $categorie->categorie_name);
+            return $stmt->execute();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
     }
 
     public function delete($id)
