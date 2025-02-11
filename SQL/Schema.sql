@@ -58,6 +58,7 @@ CREATE TABLE categorie (
                            PRIMARY KEY (categorie_id)
 );
 
+
 CREATE TABLE Etape(
                       etape_id SERIAL,
                       description VARCHAR(255) NOT NULL,
@@ -79,6 +80,7 @@ CREATE TABLE video (
                        fk_etape_id INT NOT NULL,
                        PRIMARY KEY (video_id)
 );
+
 
 CREATE TABLE historique (
                             historique_id SERIAL,
