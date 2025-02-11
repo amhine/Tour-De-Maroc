@@ -1,9 +1,11 @@
 <?php
 
 
-use Younes\TourDeMaroc\Core\Router;
-use Younes\TourDeMaroc\Controllers\HomeController;
+use Core\Router;
+use Controllers\HomeController;
 
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 $route = new Router();
 
