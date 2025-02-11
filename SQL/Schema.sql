@@ -1,104 +1,182 @@
-
+-- SQL Code definir la schema de base de données
 
 \c tourmaroc;
 
+CREATE TYPE status AS ENUM('active', 'inactive');
+CREATE TYPE roles AS ENUM ('admin', 'cycliste', 'fan');
+
+
+CREATE TABLE Roles (
+    role_id SERIAL,
+    role_name roles NOT NULL,
+    PRIMARY KEY (role_id)
+);
 
 CREATE TABLE Users (
     id SERIAL,
-    nom,
-    prenom,
-    email,
-    password
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255)  NOT NULL,
+    fk_role_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (fk_role_id) REFERENCES Roles(role_id)
 );
 
-CREATE TABLE Admin (
-
-) INHERITS (Users);
+CREATE TABLE Admin () INHERITS (Users);
 
 CREATE TABLE Cycliste (
-    wallet,
-    acheivement_points
+    age INT NOT NULL,
+    status status DEFAULT 'inactive',
+    image_profile VARCHAR(255) NOT NULL,
+    wallet INT NOT NULL DEFAULT 0,
+    acheivements TEXT NOT NULL
 ) INHERITS (Users);
 
 
 CREATE TABLE Fan (
-    wallet,
-    active_points
+    wallet INT NOT NULL DEFAULT 500,
+    status status DEFAULT 'active',
+    active_points INT NOT NULL DEFAULT 0
 ) INHERITS (Users);
 
 
 CREATE TABLE Course (
-    course_id,
-    course_nom
+    course_id SERIAL,
+    course_nom VARCHAR(255) NOT NULL,
+    PRIMARY KEY (course_id)
 );
+
+CREATE TABLE difficulte (
+    difficulte_id SERIAL,
+    difficulte_nom VARCHAR(255),
+    PRIMARY KEY (difficulte_id)
+);
+
+CREATE TABLE categorie (
+    categorie_id SERIAL,
+    categorie_nom VARCHAR(255),
+    PRIMARY KEY (categorie_id)
+);
+
 
 CREATE TABLE Etape(
-    etape_id,
-    description,
-    difficulte_id
-    course_id,
-    categorie_id,
-    region,
-    image,
-    start_date,
-    video_id
+    etape_id SERIAL,
+    description VARCHAR(255) NOT NULL,
+    region VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    fk_difficulte_id INT NOT NULL,
+    fk_course_id INT NOT NULL,
+    fk_categorie_id INT NOT NULL,
+    PRIMARY KEY (etape_id),
+    FOREIGN KEY (fk_difficulte_id) REFERENCES  difficulte(difficulte_id),
+    FOREIGN KEY (fk_course_id) REFERENCES  Course(course_id),
+    FOREIGN KEY (fk_categorie_id) REFERENCES categorie(categorie_id)
 );
 
-CREATE TABLE historique ();
+CREATE TABLE video (
+    video_id SERIAL,
+    video_url VARCHAR(255) NOT NULL,
+    fk_etape_id INT NOT NULL,
+    PRIMARY KEY (video_id)
+);
+
+
+CREATE TABLE historique (
+    historique_id SERIAL,
+    nom VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    fk_cycliste_id INT NOT NULL,
+    PRIMARY KEY (historique_id),
+    FOREIGN KEY (fk_cycliste_id) REFERENCES Users(id)
+);
 
 CREATE TABLE Comment (
-    comment_id,
-    comment_content,
-    fk_user_id,
-    fk_etape_id,
+    comment_id SERIAL,
+    status status DEFAULT 'inactive',
+    comment_content TEXT NOT NULL,
+    fk_user_id INT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    PRIMARY KEY (comment_id),
+    FOREIGN KEY (fk_user_id) REFERENCES Users(id),
+    FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
 );
 
 CREATE TABLE QA (
-    question_id,
-    question_content,
-    response_content,
-    fk_sender_id,
-    fk_receiver_id,
+    question_id SERIAL,
+    status status DEFAULT 'inactive',
+    question_content TEXT NOT NULL,
+    response_content TEXT NULL , -- default null
+    fk_sender_id INT NOT NULL,
+    fk_receiver_id INT NOT NULL,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (fk_sender_id) REFERENCES Users(id),
+    FOREIGN KEY (fk_receiver_id) REFERENCES Users(id)
 );
 
-CREATE TABLE Equipe (
-    equipe_id,
-    equipe_nom,
-    fk_user_id,
+CREATE TABLE Favorite (
+    favorite_id SERIAL,
+    fk_user_id INT NOT NULL,
+    fk_cyclisme_id INT NOT NULL,
+    PRIMARY KEY (favorite_id)
+
 ); -- MANY TO MANY Cyliste
 
 CREATE TABLE Equipe_cyliste(
-    fk_equipe_id,
-    fk_cycliste_id,
+    fk_equipe_id INT NOT NULL,
+    fk_cycliste_id INT NOT NULL,
+    PRIMARY KEY (fk_equipe_id, fk_cycliste_id)
 );
 
 CREATE TABLE ResultsPerEtape (
-    id,
-    fk_cyliste_id,
-    fk_etape_id,
-    duree,
+    id SERIAL,
+    fk_cyliste_id INT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    duree, --- stiil need to know the type
+    PRIMARY KEY (id);
 );
 
 CREATE TABLE Likes (
-    likes_id,
-    fk_etape_id,
-    fk_user_id,
+    likes_id SERIAL,
+    fk_etape_id INT NOT NULL,
+    fk_user_id INT NOT NULL,
+    PRIMARY KEY (likes_id)
 );
 
 CREATE TABLE Transaction (
-    transaction_id,
-    fk_sender_id,
-    fk_receiver_id,
-    amount,
-    date,
+    transaction_id SERIAL,
+    fk_sender_id INT NOT NULL,
+    fk_receiver_id INT NOT NULL,
+    amount INT NOT NULL,
+    date date,
+    PRIMARY KEY (transaction_id)
+);
+
+CREATE TABLE photos (
+    photo_id SERIAL,
+    photo_path VARCHAR(255),
+    PRIMARY KEY (photo_id)
 );
 
 CREATE TABLE signal (
-    signale_id,
-    description,
-    fk_etape_id,
+    signale_id SERIAL,
+    description TEXT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    PRIMARY KEY (signale_id)
 );
 
-CREATE TABLE Inscription ();
+CREATE TABLE Inscription (
+    inscription_id SERIAL,
+    fk_user_id INT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    PRIMARY KEY (inscription_id)
+);
 
-CREATE TABLE resetpassword ();
+CREATE TABLE resetpassword (
+    reset_id SERIAL,
+    reset_email VARCHAR(255) NOT NULL,
+    reset_token VARCHAR(255) NOT NULL,
+    reset_status status DEFAULT 'active',
+    PRIMARY KEY (reset_id)
+);
