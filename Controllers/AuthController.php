@@ -13,4 +13,9 @@ class AuthController
     {
         require './Views/fan/Register.php';
     }
+
+    public function resetpasswordPage(): void
+    {
+        // require_once './Views/fan/ForgetPassword.php';
+    }
 }

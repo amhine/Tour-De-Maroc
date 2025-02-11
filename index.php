@@ -32,8 +32,8 @@ $route->add('POST', '/Register', [AuthController::class, 'register']);
 $route->add('GET', '/Logout', [AuthController::class, 'logout']);
 $route->add('GET', '/Profile', [AuthController::class, 'profile']);
 $route->add('POST', '/Profile', [AuthController::class, 'update']);
-$route->add('GET', '/ForgetPassword', [AuthController::class, 'password']);
-$route->add('POST', '/ForgetPassword', [AuthController::class, 'password']);
+$route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
+$route->add('POST', '/ForgetPassword', [AuthController::class, 'resetpassword']);
 
 //categorie routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
