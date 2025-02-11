@@ -1,6 +1,6 @@
 <?php
 
-namespace Younes\TourDeMaroc\Repository;
+namespace Repository;
 
 use Younes\TourDeMaroc\Repository\Interfaces\IUserRepository;
 

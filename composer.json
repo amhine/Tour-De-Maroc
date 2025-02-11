@@ -1,5 +1,5 @@
 {
-    "name": "younes/tour-de-maroc",
+    "name": "youco/tour-de-maroc",
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
@@ -7,13 +7,13 @@
             "Helpers\\": "Helpers/",
             "Entity\\": "Entity/",
             "Repository\\": "Repository/",
-            "Repository\\interfaces": "Repository/Interfaces"
+            "Repository\\Interfaces\\": "Repository/Interfaces/"
         }
     },
     "authors": [
         {
-            "name": "Coderyounes",
-            "email": "younesanas2021@gmail.com"
+            "name": "Jad-Bel",
+            "email": "jadthegamer06@gmail.com"
         }
     ],
     "require": {}

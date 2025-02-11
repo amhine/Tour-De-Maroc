@@ -1,6 +1,6 @@
 <?php
 
-namespace Younes\TourDeMaroc\Core;
+namespace Core;
 
 class Middleware
 {
