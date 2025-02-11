@@ -16,5 +16,7 @@
             "email": "jadthegamer06@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }

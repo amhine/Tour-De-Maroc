@@ -54,7 +54,16 @@ class CategorieRepository implements ICategorieRepository
 
     public function update($categorie)
     {
-        // TODO: Implement update() method.
+        $sql = "UPDATE $this->table SET categorie_name = :categorie_name WHERE categorie_id = :categorie_id";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':categorie_id', $categorie->categorie_id);
+            $stmt->bindParam(':categorie_name', $categorie->categorie_name);
+            return $stmt->execute();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
     }
 
     public function getById($id)
