@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Core\Database;
 use Helpers\Session;
+use Repository\CategorieRepository;
 
 class CategorieController
 {
@@ -19,7 +20,13 @@ class CategorieController
 
     public function index()
     {
-        echo "CategorieController index";
+        $categoriesRepo = new CategorieRepository($this->db);
+        try {
+            $categories = $categoriesRepo->getAll();
+            // TODO: include the Categorie Views
+        } catch (\Exception $e) {
+             $this->session->set('Error', $e->getMessage());
+            header('Location: ' . $_SERVER['HTTP_REFERER']);        }
     }
 
     public function store()
