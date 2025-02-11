@@ -68,7 +68,16 @@ class CategorieRepository implements ICategorieRepository
 
     public function getById($id)
     {
-        // TODO: Implement getById() method.
+        $sql = "SELECT * FROM $this->table WHERE categorie_id = :categorie_id";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':categorie_id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
     }
 
 

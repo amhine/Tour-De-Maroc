@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#63 create methods delete">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#63 create methods to update categorie">
       <change beforePath="$PROJECT_DIR$/Repository/CategorieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/CategorieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739301294421</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="#63 create methods to update categorie">
+      <option name="closed" value="true" />
+      <created>1739301326857</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739301326857</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +132,7 @@
     <MESSAGE value="#63 Create categoryRepository with empty methods" />
     <MESSAGE value="#63 create methods getAll &amp; create" />
     <MESSAGE value="#63 create methods delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="#63 create methods delete" />
+    <MESSAGE value="#63 create methods to update categorie" />
+    <option name="LAST_COMMIT_MESSAGE" value="#63 create methods to update categorie" />
   </component>
 </project>
