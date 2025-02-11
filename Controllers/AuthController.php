@@ -21,7 +21,7 @@ class AuthController
         require './Views/fan/Login.php';
     }
 
-    public function register(): void
+    public function register()
     {
         require './Views/fan/Register.php';
     }

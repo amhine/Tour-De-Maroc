@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#39 add some route utile for the Auth">
+    <list default="true" id="1e0ac0ba-31b8-4087-a323-e5bd14f0e20b" name="Changes" comment="#39 add new empty view to display the reset password page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/AuthRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/AuthRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739302299587</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="#39 add new empty view to display the reset password page">
+      <option name="closed" value="true" />
+      <created>1739302421290</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739302421290</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +234,7 @@
     <MESSAGE value="#63 create categoriecontroller method to handle the update" />
     <MESSAGE value="#63 create categoriecontroller method to handle the deletion" />
     <MESSAGE value="#39 add some route utile for the Auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="#39 add some route utile for the Auth" />
+    <MESSAGE value="#39 add new empty view to display the reset password page" />
+    <option name="LAST_COMMIT_MESSAGE" value="#39 add new empty view to display the reset password page" />
   </component>
 </project>
