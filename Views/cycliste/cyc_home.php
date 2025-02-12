@@ -157,7 +157,6 @@ require_once 'common/header.php';
     </div>
 </main>
 
-
 <?php
 require_once 'common/footer.php';
 ?>
