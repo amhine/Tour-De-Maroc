@@ -1,20 +1,20 @@
 {
-  "name": "user/tour-de-maroc",
-  "autoload": {
-    "psr-4": {
-      "Core\\": "Core/",
-      "Controllers\\": "Controllers/",
-      "Helpers\\": "Helpers/",
-      "Entity\\": "Entity/",
-      "Repository\\": "Repository/",
-      "Repository\\Interfaces\\": "Repository/Interfaces/"
-    }
-  },
-  "authors": [
-    {
-      "name": "mohammed-ben-cheikh",
-      "email": "bencheikh.official@gmail.com"
-    }
-  ],
-  "require": {}
+    "name": "younes/tour-de-maroc",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Controllers\\": "Controllers/",
+            "Helpers\\": "Helpers/",
+            "Entity\\": "Entity/",
+            "Repository\\": "Repository/",
+            "Repository\\interfaces": "Repository/Interfaces"
+        }
+    },
+    "authors": [
+        {
+            "name": "Coderyounes",
+            "email": "younesanas2021@gmail.com"
+        }
+    ],
+    "require": {}
 }
