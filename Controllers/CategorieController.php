@@ -27,8 +27,9 @@ class CategorieController
             $categories = $categoriesRepo->getAll();
             // TODO: include the Categorie Views
         } catch (\Exception $e) {
-             $this->session->set('Error', $e->getMessage());
-            header('Location: ' . $_SERVER['HTTP_REFERER']);        }
+            $this->session->set('Error', $e->getMessage());
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
     }
 
     public function store()
@@ -64,7 +65,7 @@ class CategorieController
 
     public function destroy()
     {
-       try {
+        try {
             $categorie_id = Validator::ValidateData($_POST['categorie_id']);
             $categorieRepo = new CategorieRepository($this->db);
             $categorieRepo->delete($categorie_id);
@@ -73,7 +74,6 @@ class CategorieController
         } catch (\Exception $e) {
             $this->session->set('Error', $e->getMessage());
             header('Location: ' . $_SERVER['HTTP_REFERER']);
-       }
+        }
     }
-
 }
