@@ -90,6 +90,7 @@ require_once 'common/header.php';
     </div>
 </form>
 </div>
+>>>>>>> 10ecef5 (#86 Add header and footer for cyclist my profile page with naviagation between pages and animations with css and js)
 <?php
 require_once 'common/footer.php';
 ?>

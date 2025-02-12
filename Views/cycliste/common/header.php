@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour de Maroc - Profil Cycliste</title>
+    <title>Tour de France - Profil Cycliste</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=favorite" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -79,7 +78,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center h-16">
             <div class="flex items-center space-x-8">
-<!--                <img src="" alt="Tour de Maroc" class="h-8">-->
+                <img src="/placeholder.svg" alt="Tour de France" class="h-8">
                 <a href="#performances" class="nav-link hover:text-yellow-400" data-tab="performances">MES PERFORMANCES</a>
                 <a href="#classements" class="nav-link hover:text-yellow-400" data-tab="classements">CLASSEMENTS</a>
             </div>
