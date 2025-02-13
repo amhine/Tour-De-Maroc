@@ -21,10 +21,10 @@ class SignalController
     }
 
     public function store(){
-        $nom = Validator::ValidateData($_POST['nom']);
-        $description = Validator::ValidateData($_POST['description']);
-        $fk_user_id = Validator::ValidateData($_SESSION['fk_user_id']);
         try {
+            $nom = Validator::ValidateData($_POST['nom']);
+            $description = Validator::ValidateData($_POST['description']);
+            $fk_user_id = Validator::ValidateData($_SESSION['fk_user_id']);
             $signal = new Signal(null, $nom, $description, $fk_user_id);
             $signalRepo = new SignalRepository($this->db);
             $signalRepo->create($signal);
