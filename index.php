@@ -11,7 +11,11 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+
+use Controllers\PhotoController;
+
 use Controllers\RoleController;
+
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -42,6 +46,11 @@ $route->add('GET', '/categories', [CategorieController::class, 'index']);
 $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
+
+// photo routes
+$route->add('POST', '/photos', [PhotoController::class, 'addPhoto']);
+$route->add('GET', '/photos', [PhotoController::class, 'getPhotos']);
+$route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 
 
 
