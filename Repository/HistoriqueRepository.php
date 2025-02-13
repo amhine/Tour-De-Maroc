@@ -39,6 +39,7 @@ class HistoriqueRepository
             return null;
         }
     }
+
     public function getHistorique($cycliste_id) {
         $sql = "SELECT * FROM $this->table WHERE fk_user_id = :fk_user_id";
         try {
