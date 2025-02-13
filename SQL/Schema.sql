@@ -21,7 +21,8 @@ CREATE TABLE Users (
                        password VARCHAR(255)  NOT NULL,
                        fk_role_id INT NOT NULL,
                        PRIMARY KEY (id),
-                       FOREIGN KEY (fk_role_id) REFERENCES Role(role_id)
+                       FOREIGN KEY (fk_role_id) REFERENCES Role(role_id),
+                       status status NOT NULL DEFAULT 'active'
 );
 
 CREATE TABLE Admin () INHERITS (Users);

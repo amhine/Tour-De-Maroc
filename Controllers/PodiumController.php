@@ -6,6 +6,6 @@ class PodiumController
 {
     public function index(): void
     {
-        require './Views/fan/Podium.php';
+        require_once './Views/fan/Podium.php';
     }
 }

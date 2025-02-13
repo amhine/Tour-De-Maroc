@@ -14,9 +14,9 @@ class Database
     private $host;
 
     private function __construct() {
-        $this->user = 'younes';
-        $this->password = 'test123';
-        $this->dbname = 'youdemy';
+        $this->user = 'postgres';
+        $this->password = 'nihad';
+        $this->dbname = 'tourmaroc';
         $this->host = 'localhost';
 
         try {
