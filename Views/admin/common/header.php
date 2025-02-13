@@ -13,7 +13,7 @@
         </div>
         <div class="flex items-center space-x-4">
           <span class="text-sm text-gray-600">Welcome, Admin</span>
-          <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          <button id="openModal" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
             Add New Stage
           </button>
         </div>

@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 use Core\Router;
 use Controllers\HomeController;
 use Controllers\ParcoursController;
+use Controllers\EtapesController;
 use Controllers\PodiumController;
 use Controllers\VideoController;
 use Controllers\GdController;
@@ -27,7 +28,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 $route = new Router();
 
 $route->add('GET', '/', [HomeController::class, 'index']);
-$route->add('GET', '/Parcours', [ParcoursController::class, 'index']);
+$route->add('GET', '/Parcours', [EtapesController::class, 'index']);
+$route->add('GET', '/Etapes/{id}', [EtapesController::class, 'show']);
 $route->add('GET', '/Podium', [PodiumController::class, 'index']);
 $route->add('GET', '/Culture', [CultureController::class, 'index']);
 $route->add('GET', '/Video', [VideoController::class, 'index']);
@@ -57,14 +59,15 @@ $route->add('GET', '/photos', [PhotoController::class, 'getPhotos']);
 $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 
 
-// historique routes
+
 $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
 
+
 $method = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
+$uri = strtok($_SERVER['REQUEST_URI'], '?');
 
 
 $route->dispatch($method, $uri);
