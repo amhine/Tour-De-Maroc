@@ -8,15 +8,18 @@ CREATE TABLE Role (
     PRIMARY KEY (role_id)
 );
 CREATE TABLE Users (
-    id SERIAL,
-    nom VARCHAR(255) NOT NULL,
-    prenom VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    fk_role_id INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (fk_role_id) REFERENCES Role(role_id)
+
+                       id SERIAL,
+                       nom VARCHAR(255) NOT NULL,
+                       prenom VARCHAR(255) NOT NULL,
+                       email VARCHAR(255) NOT NULL UNIQUE,
+                       password VARCHAR(255)  NOT NULL,
+                       fk_role_id INT NOT NULL,
+                       PRIMARY KEY (id),
+                       FOREIGN KEY (fk_role_id) REFERENCES Role(role_id),
+                       status status NOT NULL DEFAULT 'active'
 );
+
 CREATE TABLE Admin () INHERITS (Users);
 CREATE TABLE Cycliste (
     age INT NOT NULL,
@@ -45,7 +48,8 @@ CREATE TABLE categorie (
     categorie_nom VARCHAR(255),
     PRIMARY KEY (categorie_id)
 );
-CREATE TABLE IF NOT EXISTS public.etape (
+CREATE TABLE IF NOT EXISTS public.etape
+(
     etape_id integer NOT NULL DEFAULT nextval('etape_etape_id_seq'::regclass),
     description character varying(255) COLLATE pg_catalog."default" NOT NULL,
     region character varying(255) COLLATE pg_catalog."default" NOT NULL,
@@ -57,9 +61,10 @@ CREATE TABLE IF NOT EXISTS public.etape (
     frape character varying(255) COLLATE pg_catalog."default",
     type character varying(255) COLLATE pg_catalog."default",
     date date,
-    "départ et arrivée" character varying(255) COLLATE pg_catalog."default",
     distance numeric,
-    "détails" text COLLATE pg_catalog."default",
+    details text COLLATE pg_catalog."default",
+    depart character varying(255) COLLATE pg_catalog."default",
+    arrivee character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT etape_pkey PRIMARY KEY (etape_id),
     CONSTRAINT etape_fk_categorie_id_fkey FOREIGN KEY (fk_categorie_id)
         REFERENCES public.categorie (categorie_id) MATCH SIMPLE
@@ -74,6 +79,7 @@ CREATE TABLE IF NOT EXISTS public.etape (
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
+
 CREATE TABLE video (
     video_id SERIAL,
     video_url VARCHAR(255) NOT NULL,
