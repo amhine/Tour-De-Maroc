@@ -22,19 +22,20 @@ class AuthRepository
         try {
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':email', $email);
-            if($stmt->execute()) {
-                return $stmt->fetch();
-            }
-            return null;
+            $stmt->execute();
+            
+            $user = $stmt->fetch();
+            return $user ? $user : null;  
         } catch (Exception $e) {
             echo 'Error check existing email: ' . $e->getMessage();
             return null;
         }
     }
+    
     public function login($email, $password) {
         $user = $this->isExist($email);
         if($user && password_verify($password, $user['password'])) {
-            if($user['user_status'] !== 'inactive') {
+            if($user['status'] !== 'inactive') {
                 foreach ($user as $key => $value){
                     $this->session->set($key, $value);
                 }
@@ -44,10 +45,11 @@ class AuthRepository
             return null;
         }
     }
+    
 
     public function signup($instance)
     {
-        $sql = "INSERT INTO {$this->table} (nom, prenom, email, password, fk_role_id, user_status) VALUES(:nom, :prenom, :email, :password, :fk_role_id, :status)";
+        $sql = "INSERT INTO {$this->table} (nom, prenom, email, password, fk_role_id, status) VALUES(:nom, :prenom, :email, :password, :fk_role_id, :status::status)";
         if($this->isExist($instance->email)) {
             throw new Exception('Email is Already Exist');
         }

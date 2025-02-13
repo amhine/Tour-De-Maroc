@@ -1,5 +1,7 @@
-    <!-- Footer -->
-    <footer class="bg-black text-white mt-24 py-12">
+
+
+
+<footer class="bg-black text-white mt-24 py-12">
         <div class="container mx-auto px-4">
             <img src="/placeholder.svg" alt="ASO" class="h-8 mb-8">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
