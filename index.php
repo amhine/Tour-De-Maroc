@@ -12,7 +12,8 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
-use Controllers\CyclisteController;
+use Controllers\VisitorController;
+use Controllers\cyclisteController;
 
 use Controllers\PhotoController;
 
@@ -20,7 +21,7 @@ use Controllers\HistoriqueController;
 use Controllers\RoleController;
 
 
-use Controllers\RoleController;
+// use Controllers\RoleController;
 
 
 
@@ -69,6 +70,8 @@ $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
+// admin routes
+$route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = strtok($_SERVER['REQUEST_URI'], '?');
