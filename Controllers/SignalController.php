@@ -9,8 +9,8 @@ use Core\Database;
 use Repository\SignalRepository;
 
 use Exception;
-// TODO: Create une Signal
-// TODO: Afficher les Signal
+
+
 class SignalController
 {
     private $db;
