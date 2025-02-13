@@ -11,9 +11,16 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+
 use Controllers\PhotoController;
+
 use Controllers\HistoriqueController;
 use Controllers\RoleController;
+
+
+use Controllers\RoleController;
+
+
 
 require_once __DIR__ . '/vendor/autoload.php';
 
