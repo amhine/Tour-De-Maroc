@@ -1,6 +1,7 @@
 <?php
 
 namespace Entity;
+use DateTime;
 
 class Visitor {
     private $id;
@@ -38,7 +39,7 @@ class Visitor {
         return $this->city;
     }
 
-    public function setVisitedAt($visitedAt) {
+    public function setVisitedAt(DateTime $visitedAt): void {
         $this->visitedAt = $visitedAt;
     }
 

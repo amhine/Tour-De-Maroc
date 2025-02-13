@@ -2,7 +2,7 @@
 
 namespace Repository\Interfaces;
 
-interface IVisitorsRepository {
+interface IVisitorRepository {
     public function save($visitor): void;
     public function findAll(): object;
 }
