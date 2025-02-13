@@ -52,7 +52,7 @@ require_once __DIR__ . '/common/header.php';
         <section>
             <h2 class="inline-block bg-yellow-400 px-4 py-2 font-bold mb-4">PARCOURS</h2>
             <div class="space-y-4">
-                <p>Hexagonal à 100 %. Le Tour de France 2025 ne fera pas d'escapade au-delà de ses frontières et son parcours sera intégralement tracé dans l'Hexagone.</p>
+                <p>Hexagonal à 100 %. Le Tour de Maroc 2025 ne fera pas d'escapade au-delà de ses frontières et son parcours sera intégralement tracé dans l'Hexagone.</p>
                 <p>Cela vient une année étape 2025. <strong>11 Régions et 34 départements seront visités.</strong></p>
             </div>
         </section>
@@ -89,7 +89,7 @@ require_once __DIR__ . '/common/header.php';
     <!-- Follow Us Section -->
     <section class="mt-24 text-center">
         <h2 class="font-bold text-xl mb-4">SUIVEZ-NOUS</h2>
-        <p class="text-gray-600 mb-8">Recevez des informations exclusives sur le Tour de France</p>
+        <p class="text-gray-600 mb-8">Recevez des informations exclusives sur le Tour de Maroc</p>
         <div class="flex justify-center items-center space-x-4">
             <a href="#" class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors">
                 <i class="fab fa-facebook-f"></i>
