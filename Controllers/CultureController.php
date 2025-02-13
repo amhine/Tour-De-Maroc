@@ -7,6 +7,6 @@ class CultureController
 {
     public function index(): void
     {
-        require './Views/fan/Culture.php';
+        require_once './Views/fan/Culture.php';
     }
 }
