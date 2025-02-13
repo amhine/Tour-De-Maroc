@@ -14,6 +14,7 @@ class Router
     }
     public function dispatch($httpmethod, $path) {
         $uri = $this->formatPath($path);
+
         foreach ($this->routes as $route) {
             if($route['method'] === strtoupper($httpmethod) && $route['path'] === $uri) {
                 $class = $route['handler'][0];

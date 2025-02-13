@@ -2,11 +2,13 @@
 
 namespace Repository;
 
+
+use Exception;
 class AuthRepository
 {
     private $db;
     private $session;
-    private $table = "Persons";
+    private $table = "Users";
 
     public function __construct($db, $session)
     {
@@ -20,19 +22,20 @@ class AuthRepository
         try {
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':email', $email);
-            if($stmt->execute()) {
-                return $stmt->fetch();
-            }
-            return null;
+            $stmt->execute();
+            
+            $user = $stmt->fetch();
+            return $user ? $user : null;  
         } catch (Exception $e) {
             echo 'Error check existing email: ' . $e->getMessage();
             return null;
         }
     }
+    
     public function login($email, $password) {
         $user = $this->isExist($email);
         if($user && password_verify($password, $user['password'])) {
-            if($user['user_status'] !== 'inactive') {
+            if($user['status'] !== 'inactive') {
                 foreach ($user as $key => $value){
                     $this->session->set($key, $value);
                 }
@@ -42,10 +45,11 @@ class AuthRepository
             return null;
         }
     }
+    
 
     public function signup($instance)
     {
-        $sql = "INSERT INTO {$this->table} (nom, prenom, email, password, fk_role_id, user_status) VALUES(:nom, :prenom, :email, :password, :fk_role_id, :status)";
+        $sql = "INSERT INTO {$this->table} (nom, prenom, email, password, fk_role_id, status) VALUES(:nom, :prenom, :email, :password, :fk_role_id, :status::status)";
         if($this->isExist($instance->email)) {
             throw new Exception('Email is Already Exist');
         }
@@ -83,5 +87,76 @@ class AuthRepository
             return $this->isExist($email);
         }
         return null;
+    }
+
+    public function SendResetToken($email) {
+        $user = $this->isExist($email);
+        if($user) {
+            $token = self::generateToken();
+            $sql = "INSERT INTO resetpassword (reset_email, reset_token, reset_status) VALUES (:email, :token, :status)";
+            try {
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':token', $token);
+                $stmt->bindParam(':status', 'active');
+                if($stmt->execute()) {
+                    $url = "http://localhost:8000/ResetPassword/$token";
+                    // TODO: send Email
+                }
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+    }
+
+    public function validateToken($token) {
+        $sql = "SELECT * FROM resetpassword WHERE reset_token = :token AND reset_status = :status";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':token', $token);
+            $stmt->bindParam(':status', 'active');
+            if($stmt->execute()) {
+                return $stmt->fetch();
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return null;
+    }
+
+    public function ChangePassword($password, $token) {
+        $sql = "SELECT * FROM resetpassword WHERE reset_token = :token AND reset_status = :status";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':token', $token);
+            $stmt->bindParam(':status', 'active');
+            if($stmt->execute()) {
+                $reset = $stmt->fetch();
+                if($reset) {
+                    $sql = "UPDATE Users SET password = :password WHERE email = :email";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
+                    $stmt->bindParam(':email', $reset['reset_email']);
+                    if($stmt->execute()) {
+                        $this->killresetToken($token);
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function killresetToken($token) {
+        $sql = "UPDATE resetpassword SET reset_status = :status WHERE reset_token = :token";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':status', 'inactive');
+        $stmt->bindParam(':token', $token);
+        $stmt->execute();
+    }
+
+    public static function generateToken()
+    {
+        return bin2hex(random_bytes(50));
     }
 }
