@@ -10,39 +10,40 @@ require_once __DIR__ . '/common/header.php';
                     <th class="py-4 px-4 font-medium text-gray-500">ÉTAPE</th>
                     <th class="py-4 px-4 font-medium text-gray-500">TYPE</th>
                     <th class="py-4 px-4 font-medium text-gray-500">DATE</th>
-                    <th class="py-4 px-4 font-medium text-gray-500">DÉPART ET ARRIVÉE</th>
+                    <th class="py-4 px-4 font-medium text-gray-500">DÉPART</th>
+                    <th class="py-4 px-4 font-medium text-gray-500">ARRIVÉE</th>
                     <th class="py-4 px-4 font-medium text-gray-500">DISTANCE</th>
                     <th class="py-4 px-4 font-medium text-gray-500">DÉTAILS</th>
                 </tr>
             </thead>
             <tbody class="divide-y">
-                <?php foreach ($etapes as $etape): ?>
-                    <tr class="hover:bg-gray-50">
-                        <td class="py-4 px-4"><?= $etape->id ?></td>
-                        <td class="py-4 px-4">
-                            <i class="fas fa-road text-gray-600"></i>
-                            <span class="ml-2 text-sm text-gray-600"><?= $etape->description ?></span>
-                        </td>
-                        <td class="py-4 px-4 text-sm"><?= $etape->start_date ?></td>
-                        <td class="py-4 px-4 font-medium"><?= $etape->region ?></td>
-                        <td class="py-4 px-4"><?= $etape->difficulte ?></td>
-                        <td class="py-4 px-4">
-                            <button class="bg-black text-white px-4 py-1 text-sm hover:bg-yellow-400 transition-colors">
-                                ÉTAPE 1
-                            </button>
-                        </td>
+                <?php if (!empty($etapes)): ?>
+                    <?php foreach ($etapes as $etape): ?>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4"><?= $etape->etape_id ?></td>
+                            <td class="py-4 px-4">
+                                <i class="fas fa-road text-gray-600"></i>
+                                <span class="ml-2 text-sm text-gray-600"><?= $etape->type ?></span>
+                            </td>
+                            <td class="py-4 px-4 text-sm"><?= $etape->date ?></td>
+                            <td class="py-4 px-4 font-medium"><?= $etape->depart ?></td>
+                            <td class="py-4 px-4 font-medium"><?= $etape->arrivee ?></td>
+                            <td class="py-4 px-4"><?= $etape->distance ?> KM</td>
+                            <td class="py-4 px-4">
+                                <a href="etape_details.php?id=<?= $etape->etape_id ?>"
+                                    class="bg-black text-white px-4 py-1 text-sm hover:bg-yellow-400 transition-colors">
+                                    ÉTAPE <?= $etape->etape_id ?>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="7" class="py-4 px-4 text-center text-gray-500">Aucune étape trouvée.</td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
-    </div>
-
-    <!-- Load More Button -->
-    <div class="text-center mt-8">
-        <button class="bg-black text-white px-8 py-3 flex items-center justify-center mx-auto space-x-2 hover:bg-gray-800 transition-colors">
-            <span>LIRE PLUS</span>
-            <i class="fas fa-plus"></i>
-        </button>
     </div>
 
     <!-- Course Information Sections -->

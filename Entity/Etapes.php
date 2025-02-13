@@ -6,23 +6,54 @@ use Helpers\Validator;
 
 class Etapes
 {
-    private $id;
+    private $etape_id;
     private $description;
     private $region;
     private $image;
-    private $start_date;
+    private $startDate;
     private $difficulte;
-    private $course_id;
+    private $courseId;
+    private $categorieId;
+    private $frape;
+    private $type;
+    private $date;
+    private $depart; 
+    private $arrivee; 
+    private $distance;
+    private $details;
 
-    public function __construct($id, $description, $region, $image, $start_date, $difficulte, $course_id)
-    {
-        $this->id = Validator::ValidateData($id) ?? null;
+    public function __construct(
+        $etape_id,
+        $description,
+        $region,
+        $image,
+        $startDate,
+        $difficulte,
+        $courseId,
+        $categorieId,
+        $frape,
+        $type,
+        $date,
+        $depart, 
+        $arrivee, 
+        $distance,
+        $details
+    ) {
+        $this->id = Validator::ValidateData($etape_id) ?? null;
         $this->description = Validator::ValidateData($description);
         $this->region = Validator::ValidateData($region);
         $this->image = Validator::ValidateImage($image);
-        $this->start_date = Validator::ValidateData($start_date);
+        $this->startDate = Validator::ValidateData($startDate);
         $this->difficulte = Validator::ValidateData($difficulte);
-        $this->course_id = Validator::ValidateData($course_id);
+        $this->courseId = Validator::ValidateData($courseId);
+        $this->categorieId = Validator::ValidateData($categorieId);
+        $this->frape = Validator::ValidateData($frape);
+        $this->type = Validator::ValidateData($type);
+        $this->date = Validator::ValidateData($date);
+        $this->depart = Validator::ValidateData($depart); 
+        $this->arrivee = Validator::ValidateData($arrivee); 
+        $this->distance = Validator::ValidateData($distance);
+        $this->details = Validator::ValidateData($details);
     }
 
     public function __get($name)
