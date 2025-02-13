@@ -4,10 +4,10 @@ namespace Repository;
 
 use Core\Database;
 use Exception;
-use Repository\Interfaces\IVisitorsRepository as InterfaceVisitorsRepository;
+use Repository\Interfaces\IVisitorRepository as InterfaceVisitorRepository;
 use PDO;
 
-class VisitorsRepository implements InterfaceVisitorsRepository
+class VisitorRepository implements InterfaceVisitorRepository
 {
     private $db;
     private $table = "visitors";
