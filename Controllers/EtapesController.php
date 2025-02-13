@@ -10,28 +10,48 @@ class EtapesController
 {
     private $db;
     private $session;
+    private $EtapeRepo;
+
 
     public function __construct()
     {
         $this->db = Database::getConnection()->conn;
         $this->session = new Session($this->db);
+        $this->EtapeRepo = new EtapesRepository($this->db);
     }
 
     public function index()
     {
-        $EtapeRepo = new EtapesRepository($this->db);
         try {
-            $etapes = $EtapeRepo->getAll();
-
+            $etapes = $this->EtapeRepo->getAll();
             // echo "<pre>";
             // print_r($etapes);
             // echo "</pre>";
-            require_once './Views/fan/Parcours.php';
  
-            // require_once __DIR__ . '/../Views/fan/Parcours.php';
+            require_once __DIR__ . '/../Views/fan/Parcours.php';
         } catch (\Exception $e) {
             $this->session->set('Error', $e->getMessage());
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function show($id) 
+    {
+        $id = intval($id);
+        $etape_id = $id;
+
+        if (!isset($id) || empty($id)) {
+            die("Etape ID is missing.");
+        }
+
+        $etape = $this->EtapeRepo->getById($etape_id);
+
+        if (!$etape) {
+            header("HTTP/1.0 404 Not Found");
+            echo "Etape not found";
+            return;
+        }
+
+        require_once __DIR__ . '';
+    } 
 }
