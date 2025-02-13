@@ -113,12 +113,17 @@ CREATE TABLE QA (
 );
 
 CREATE TABLE Favorite (
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a275552 (Database Schema Finale design)
                           favorite_id SERIAL,
                           fk_user_id INT NOT NULL,
                           fk_cycliste_id INT NOT NULL,
                           PRIMARY KEY (favorite_id),
                           FOREIGN KEY (fk_user_id) REFERENCES Users(id),
                           FOREIGN KEY (fk_cycliste_id) REFERENCES Users(id)
+<<<<<<< HEAD
 );
 
 CREATE TABLE ResultsPerEtape (
@@ -129,6 +134,35 @@ CREATE TABLE ResultsPerEtape (
                                  PRIMARY KEY (id),
                                  FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
                                  FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+=======
+    favorite_id SERIAL,
+    fk_user_id INT NOT NULL,
+    fk_cyclisme_id INT NOT NULL,
+    PRIMARY KEY (favorite_id)
+
+);
+
+CREATE TABLE ResultsPerEtape (
+    id SERIAL,
+    fk_cyliste_id INT NOT NULL,
+    fk_etape_id INT NOT NULL,
+    duree TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
+    FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+>>>>>>> 827979a (remove unnecessary table)
+=======
+);
+
+CREATE TABLE ResultsPerEtape (
+                                 id SERIAL,
+                                 fk_cyliste_id INT NOT NULL,
+                                 fk_etape_id INT NOT NULL,
+                                 duree TIMESTAMP,
+                                 PRIMARY KEY (id),
+                                 FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
+                                 FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+>>>>>>> a275552 (Database Schema Finale design)
 );
 
 CREATE TABLE Likes (

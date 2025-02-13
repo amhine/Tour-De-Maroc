@@ -14,7 +14,7 @@ class Photo
     public function __construct($photo_id, $photo, $fk_user_id)
     {
         try {
-            $this->photo_id = Validator::ValidateData($photo_id) ?? null;
+            $this->photo_id = Validator::ValidateData($photo_id);
             $this->photo = Validator::ValidateImage($photo);
             $this->fk_user_id = Validator::ValidateData($fk_user_id);
         } catch (Exception $e) {
