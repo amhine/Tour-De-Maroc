@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 namespace Repository;
 
-use Interfaces\IEtapesRepository as InterfacesIEtapesRepository;
+use Repository\Interfaces\IEtapesRepository as InterfacesEtapesRepository;
+use Entity\Etapes;
 use PDO;
 
-class EtapesRepository implements InterfacesIEtapesRepository
+class EtapesRepository implements InterfacesEtapesRepository
 {
     private $db;
     private $table = 'etape';
@@ -79,4 +80,5 @@ class EtapesRepository implements InterfacesIEtapesRepository
             echo $e->getMessage();
             return null;
         }
-    }}
+    }
+}

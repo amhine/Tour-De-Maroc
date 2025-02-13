@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 use Core\Router;
 use Controllers\HomeController;
 use Controllers\ParcoursController;
+use Controllers\EtapesController;
 use Controllers\PodiumController;
 use Controllers\VideoController;
 use Controllers\GdController;
@@ -19,7 +20,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $route = new Router();
 
 $route->add('GET', '/', [HomeController::class, 'index']);
-$route->add('GET', '/Parcours', [ParcoursController::class, 'index']);
+$route->add('GET', '/Parcours', [EtapesController::class, 'index']);
 $route->add('GET', '/Podium', [PodiumController::class, 'index']);
 $route->add('GET', '/Culture', [CultureController::class, 'index']);
 $route->add('GET', '/Video', [VideoController::class, 'index']);
