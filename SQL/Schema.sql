@@ -1,8 +1,8 @@
 -- SQL Code definir la schema de base de données
 
-CREATE DATABASE tourmaroc
+-- CREATE DATABASE tourmaroc
 
-\c tourmaroc;
+-- \c tourmaroc;
 
 CREATE TYPE status AS ENUM('active', 'inactive');
 CREATE TYPE roles AS ENUM ('admin', 'cycliste', 'fan');
@@ -129,8 +129,8 @@ CREATE TABLE ResultsPerEtape (
                                  duree TIMESTAMP,
                                  PRIMARY KEY (id),
                                  FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
-                                 FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id);
-
+                                 FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+);
 
 CREATE TABLE Likes (
                        likes_id SERIAL,
@@ -168,7 +168,6 @@ CREATE TABLE signal (
                         PRIMARY KEY (signale_id),
                         FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id),
                         FOREIGN KEY (fk_user_id) REFERENCES Users(id)
-
 );
 
 CREATE TABLE Inscription (
