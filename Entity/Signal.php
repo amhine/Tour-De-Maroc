@@ -3,6 +3,7 @@
 namespace Entity;
 
 use Helpers\Validator;
+use Exception;
 class Signal
 {
     private $signal_id;
