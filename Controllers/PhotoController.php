@@ -55,5 +55,4 @@ class PhotoController
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
-
 }
