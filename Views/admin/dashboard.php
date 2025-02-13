@@ -152,5 +152,140 @@ require_once __DIR__ . '/common/header.php';
       </div>
     </div>
   </div>
+
+
+  <div id="etapeModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-20 mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white">
+        <div class="flex justify-between items-center border-b pb-4">
+            <h3 class="text-xl font-bold text-gray-900">Add/Edit Stage</h3>
+            <button onclick="closeModal()" class="text-gray-400 hover:text-gray-500">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <form class="mt-4 space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Description</label>
+                    <input type="text" name="description" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Region</label>
+                    <input type="text" name="region" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Image URL</label>
+                    <input type="text" name="image" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Start Date</label>
+                    <input type="date" name="start_date" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Difficulty ID</label>
+                    <input type="number" name="fk_difficulte_id" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Course ID</label>
+                    <input type="number" name="fk_course_id" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Category ID</label>
+                    <input type="number" name="fk_categorie_id" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Frape</label>
+                    <input type="text" name="frape"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Type</label>
+                    <input type="text" name="type"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" name="date"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Départ</label>
+                    <input type="text" name="depart_et_arrivee"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Arrivée</label>
+                    <input type="text" name="arrivee"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Distance</label>
+                    <input type="number" step="0.01" name="distance"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Détails</label>
+                <textarea name="details" rows="3"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+            </div>
+
+            <div class="flex justify-end space-x-3 pt-4 border-t">
+                <button type="button" onclick="closeModal()"
+                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200">
+                    Cancel
+                </button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openModal() {
+    document.getElementById('etapeModal').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('etapeModal').classList.add('hidden');
+}
+
+document.getElementById('openModal').addEventListener('click', () => {
+    if (e.target === this) {
+      openModal();
+    }
+})
+
+document.getElementById('etapeModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+</script>
 </body>
 </html>
