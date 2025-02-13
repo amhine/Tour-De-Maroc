@@ -30,7 +30,7 @@ require_once __DIR__ . '/common/header.php';
                             <td class="py-4 px-4 font-medium"><?= $etape->arrivee ?></td>
                             <td class="py-4 px-4"><?= $etape->distance ?> KM</td>
                             <td class="py-4 px-4">
-                                <a href="etape_details.php?id=<?= $etape->etape_id ?>"
+                                <a href="Etape/<?= $etape->etape_id ?>"
                                     class="bg-black text-white px-4 py-1 text-sm hover:bg-yellow-400 transition-colors">
                                     ÉTAPE <?= $etape->etape_id ?>
                                 </a>

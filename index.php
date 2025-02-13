@@ -20,6 +20,7 @@ $route = new Router();
 
 $route->add('GET', '/', [HomeController::class, 'index']);
 $route->add('GET', '/Parcours', [EtapesController::class, 'index']);
+$route->add('GET', '/Etape/{id}', [EtapesController::class, 'index']);
 $route->add('GET', '/Podium', [PodiumController::class, 'index']);
 $route->add('GET', '/Culture', [CultureController::class, 'index']);
 $route->add('GET', '/Video', [VideoController::class, 'index']);
@@ -43,6 +44,8 @@ $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
 
+
+// Cyclist routes
 
 
 
