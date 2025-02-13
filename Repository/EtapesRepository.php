@@ -5,6 +5,7 @@ namespace Repository;
 use Repository\Interfaces\IEtapesRepository as InterfacesEtapesRepository;
 use Entity\Etapes;
 use PDO;
+use Exception;
 
 class EtapesRepository implements InterfacesEtapesRepository
 {
@@ -23,23 +24,10 @@ class EtapesRepository implements InterfacesEtapesRepository
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $results = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-            $etapes = [];
-            foreach ($results as $row) {
-                $etapes[] = new \Entity\Etapes(
-                    $row->etape_id,  
-                    $row->description,
-                    $row->region,
-                    $row->image,
-                    $row->start_date,
-                    $row->fk_difficulte_id, 
-                    $row->fk_course_id 
-                );
-            }
-            return $etapes;
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-            return [];
+    
+            return $results;        
+        } catch (Exception $e) {
+            error_log("Error in getAll(): " . $e->getMessage());
         }
     }
 
