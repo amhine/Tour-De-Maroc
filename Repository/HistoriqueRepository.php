@@ -2,26 +2,25 @@
 
 namespace Repository;
 
-use Repository\Interfaces\IPhotoRepository;
-use Exception;
-
-class PhotoRepository implements IPhotoRepository
+use PDO, Exception;
+class HistoriqueRepository
 {
     private $db;
-    private $table = "photos";
+    private $table = 'historique';
 
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function ajoute($instancePhoto)
+    public function create($historique)
     {
-        $sql = "INSERT INTO $this->table (photo, fk_user_id) VALUES (:photo, :fk_user_id)";
+        $sql = "INSERT INTO  $this->table  (nom, description, fk_user_id) VALUES (:nom, :description, :fk_user_id)";
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':photo', $instancePhoto->photo);
-            $stmt->bindParam(':fk_user_id', $instancePhoto->fk_user_id);
+            $stmt->bindParam(':nom', $historique->nom);
+            $stmt->bindParam(':description', $historique->description);
+            $stmt->bindParam(':fk_user_id', $historique->fk_user_id);
             return $stmt->execute();
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -29,27 +28,24 @@ class PhotoRepository implements IPhotoRepository
         }
     }
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM $this->table WHERE photo_id = :photo_id";
+    public function delete($id) {
+        $sql = "DELETE FROM $this->table WHERE historique_id = :historique_id";
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':photo_id', $id);
+            $stmt->bindParam(':historique_id', $id);
             return $stmt->execute();
         } catch (Exception $e) {
             echo $e->getMessage();
             return null;
         }
     }
-
-    public function getCyclisteImage($user_id)
-    {
+    public function getHistorique($cycliste_id) {
         $sql = "SELECT * FROM $this->table WHERE fk_user_id = :fk_user_id";
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':fk_user_id', $user_id);
+            $stmt->bindParam(':fk_user_id', $cycliste_id);
             $stmt->execute();
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             echo $e->getMessage();
             return null;
