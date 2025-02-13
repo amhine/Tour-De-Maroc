@@ -186,3 +186,12 @@ CREATE TABLE resetpassword (
                                reset_status status DEFAULT 'active',
                                PRIMARY KEY (reset_id)
 );
+
+CREATE TABLE visitlogs (
+    log_id SERIAL NOT NULL,
+    log_date timestamp,
+    log_ip VARCHAR(255) NOT NULL ,
+    log_country varchar(255) NOT NULL ,
+    log_city varchar(255) NOT NULL ,
+    log_region varchar(255) NOT NULL
+)
