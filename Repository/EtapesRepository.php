@@ -24,8 +24,8 @@ class EtapesRepository implements InterfacesEtapesRepository
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $results = $stmt->fetchAll(PDO::FETCH_OBJ);
-    
-            return $results;        
+
+            return $results;
         } catch (Exception $e) {
             error_log("Error in getAll(): " . $e->getMessage());
         }
@@ -33,7 +33,15 @@ class EtapesRepository implements InterfacesEtapesRepository
 
     public function getById($id)
     {
-        $sql = "SELECT * FROM $this->table WHERE etape_id = :id";
+        $sql = "SELECT 
+                    c.categorie_nom AS ctg_name,
+                    e.*
+                FROM 
+                    etape e
+                JOIN 
+                    categorie c ON e.fk_categorie_id = c.categorie_id
+                WHERE 
+                    e.etape_id = :id;";
         try {
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id', $id);
