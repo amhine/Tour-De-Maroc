@@ -25,6 +25,7 @@ class PhotoController
         try {
             $photoInstance = new Photo(null, $filePhoto, $fk_user_id);
             $photoRepository = new PhotoRepository($this->db);
+            $photoRepository->ajoute($photoInstance);
             $this->session->set('Succes', 'Image Added SuccesFully');
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         } catch (Exception $e) {
@@ -52,7 +53,7 @@ class PhotoController
             return $photos; // TODO: return to view
         } catch (Exception $e) {
             $this->session->set('Error', $e->getMessage());
-            header('Location: ' . $_SERVER['HTTP_REFERER'])
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
 }
