@@ -198,8 +198,10 @@ CREATE TABLE signal (
                         signale_id SERIAL,
                         description TEXT NOT NULL,
                         fk_etape_id INT NOT NULL,
+                        fk_user_id INT NOT NULL,
                         PRIMARY KEY (signale_id),
-                        FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+                        FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id),
+                        FOREIGN KEY (fk_user_id) REFERENCES Users(id)
 );
 
 CREATE TABLE Inscription (
