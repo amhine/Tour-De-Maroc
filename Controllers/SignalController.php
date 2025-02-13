@@ -1,7 +1,14 @@
 <?php
 
 namespace Controllers;
+
+use Entity\Signal;
+use Helpers\Validator;
+use Helpers\Session;
+use Core\Database;
 use Repository\SignalRepository;
+
+use Exception;
 // TODO: Create une Signal
 // TODO: Afficher les Signal
 class SignalController
@@ -14,9 +21,9 @@ class SignalController
     }
 
     public function store(){
-        $nom = $_POST['nom'];
-        $description = $_POST['description'];
-        $fk_user_id = $_SESSION['fk_user_id'];
+        $nom = Validator::ValidateData($_POST['nom']);
+        $description = Validator::ValidateData($_POST['description']);
+        $fk_user_id = Validator::ValidateData($_SESSION['fk_user_id']);
         try {
             $signal = new Signal(null, $nom, $description, $fk_user_id);
             $signalRepo = new SignalRepository($this->db);
