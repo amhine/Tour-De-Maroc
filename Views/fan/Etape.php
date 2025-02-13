@@ -8,9 +8,9 @@
         <div class="absolute inset-0 bg-black bg-opacity-50">
             <div class="max-w-7xl mx-auto px-4 h-full flex items-center">
                 <div class="text-white" id="hero-content">
-                    <h1 class="text-5xl font-bold mb-4">Étape 2</h1>
-                    <p class="text-2xl mb-2">Vitré → Rennes</p>
-                    <p class="text-xl">Distance: 185 km</p>
+                    <h1 class="text-5xl font-bold mb-4">Étape <?= $etape->etape_id ?></h1>
+                    <p class="text-2xl mb-2"><?= $etape->depart . '→ ' . $etape->arrivee?></p>
+                    <p class="text-xl">Distance: <?= $etape->distance ?> km</p>
                 </div>
             </div>
         </div>
@@ -26,19 +26,19 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <p class="text-gray-600">Date</p>
-                            <p class="font-bold">2 juillet 2025</p>
+                            <p class="font-bold"><?= $etape->date ?></p>
                         </div>
                         <div>
                             <p class="text-gray-600">Type</p>
-                            <p class="font-bold">Plaine</p>
+                            <p class="font-bold"><?= $etape->type ?></p>
                         </div>
                         <div>
                             <p class="text-gray-600">Départ</p>
-                            <p class="font-bold">10:30</p>
+                            <p class="font-bold"><?= $etape->depart ?></p>
                         </div>
                         <div>
                             <p class="text-gray-600">Arrivée estimée</p>
-                            <p class="font-bold">16:45</p>
+                            <p class="font-bold"><?= $etape->arrivee ?></p>
                         </div>
                     </div>
                 </div>
@@ -65,11 +65,7 @@
                 <!-- Route Description -->
                 <div class="bg-white rounded-lg shadow-lg p-6" id="route-description">
                     <h2 class="text-2xl font-bold mb-4">Description du parcours</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Cette étape de plaine traverse la Bretagne d'est en ouest, offrant aux coureurs un parcours
-                        relativement plat mais exposé aux vents. Le final dans les rues de Rennes promet d'être
-                        spectaculaire avec un sprint massif attendu sur le Boulevard de la Liberté.
-                    </p>
+                    <p class="text-gray-700 leading-relaxed"><?= $etape->description ?></p>
                 </div>
             </div>
 
@@ -175,5 +171,5 @@
     </script>
 
     <?php
-    
+        require_once __DIR__ . '/common/footer.php';
     ?>

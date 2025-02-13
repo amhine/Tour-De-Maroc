@@ -31,6 +31,20 @@ class EtapesRepository implements InterfacesEtapesRepository
         }
     }
 
+    public function getById($id)
+    {
+        $sql = "SELECT * FROM $this->table WHERE etape_id = :id";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
+    }
+
     public function create($etape)
     {
         $sql = "INSERT INTO $this->table (desription) VALUES (:description)";
@@ -65,20 +79,6 @@ class EtapesRepository implements InterfacesEtapesRepository
             $stmt->bindParam(':id', $etape->id);
             $stmt->bindParam(':description', $etape->description);
             return $stmt->execute();
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-            return null;
-        }
-    }
-
-    public function getById($id)
-    {
-        $sql = "SELECT * FROM $this->table WHERE etape_id = :id";
-        try {
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (\Exception $e) {
             echo $e->getMessage();
             return null;

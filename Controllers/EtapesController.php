@@ -24,9 +24,6 @@ class EtapesController
     {
         try {
             $etapes = $this->EtapeRepo->getAll();
-            // echo "<pre>";
-            // print_r($etapes);
-            // echo "</pre>";
  
             require_once __DIR__ . '/../Views/fan/Parcours.php';
         } catch (\Exception $e) {
@@ -38,13 +35,12 @@ class EtapesController
     public function show($id) 
     {
         $id = intval($id);
-        $etape_id = $id;
 
         if (!isset($id) || empty($id)) {
             die("Etape ID is missing.");
         }
 
-        $etape = $this->EtapeRepo->getById($etape_id);
+        $etape = $this->EtapeRepo->getById($id);
 
         if (!$etape) {
             header("HTTP/1.0 404 Not Found");
@@ -52,6 +48,6 @@ class EtapesController
             return;
         }
 
-        require_once __DIR__ . '';
+        require_once __DIR__ . '/../Views/fan/Etape.php';
     } 
 }
