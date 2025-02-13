@@ -8,6 +8,7 @@ CREATE TABLE Role (
     PRIMARY KEY (role_id)
 );
 CREATE TABLE Users (
+
                        id SERIAL,
                        nom VARCHAR(255) NOT NULL,
                        prenom VARCHAR(255) NOT NULL,
@@ -46,6 +47,37 @@ CREATE TABLE categorie (
     categorie_nom VARCHAR(255),
     PRIMARY KEY (categorie_id)
 );
+CREATE TABLE IF NOT EXISTS public.etape
+(
+    etape_id integer NOT NULL DEFAULT nextval('etape_etape_id_seq'::regclass),
+    description character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    region character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    image character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    start_date date NOT NULL,
+    fk_difficulte_id integer NOT NULL,
+    fk_course_id integer NOT NULL,
+    fk_categorie_id integer NOT NULL,
+    frape character varying(255) COLLATE pg_catalog."default",
+    type character varying(255) COLLATE pg_catalog."default",
+    date date,
+    distance numeric,
+    details text COLLATE pg_catalog."default",
+    depart character varying(255) COLLATE pg_catalog."default",
+    arrivee character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT etape_pkey PRIMARY KEY (etape_id),
+    CONSTRAINT etape_fk_categorie_id_fkey FOREIGN KEY (fk_categorie_id)
+        REFERENCES public.categorie (categorie_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT etape_fk_course_id_fkey FOREIGN KEY (fk_course_id)
+        REFERENCES public.course (course_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT etape_fk_difficulte_id_fkey FOREIGN KEY (fk_difficulte_id)
+        REFERENCES public.difficulte (difficulte_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
 
 CREATE TABLE IF NOT EXISTS public.etape (
     etape_id integer NOT NULL DEFAULT nextval('etape_etape_id_seq'::regclass),
