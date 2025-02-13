@@ -22,9 +22,25 @@ class EtapesRepository implements InterfacesEtapesRepository
         try {
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            $etapes = [];
+            foreach ($results as $row) {
+                $etapes[] = new \Entity\Etapes(
+                    $row->etape_id,  
+                    $row->description,
+                    $row->region,
+                    $row->image,
+                    $row->start_date,
+                    $row->fk_difficulte_id, 
+                    $row->fk_course_id 
+                );
+            }
+            return $etapes;
             return $stmt->fetchAll(PDO::FETCH_OBJ);
         } catch (\Exception $e) {
             echo $e->getMessage();
+            return [];
         }
     }
 

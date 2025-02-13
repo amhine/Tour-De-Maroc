@@ -21,7 +21,7 @@ class EtapesController
     {
         $EtapeRepo = new EtapesRepository($this->db);
         try {
-            $categories = $EtapeRepo->getAll();
+            $etapes = $EtapeRepo->getAll();
             // TODO: include the Etape Views
             require_once __DIR__ . '/../Views/fan/Grande_Depart.php';
         } catch (\Exception $e) {
