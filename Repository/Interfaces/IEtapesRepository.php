@@ -1,6 +1,6 @@
 <?php 
 
-namespace Interfaces;
+namespace Repository\Interfaces;
 
 interface IEtapesRepository
 {

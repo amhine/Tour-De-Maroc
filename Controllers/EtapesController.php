@@ -21,9 +21,12 @@ class EtapesController
     {
         $EtapeRepo = new EtapesRepository($this->db);
         try {
-            $categories = $EtapeRepo->getAll();
+            $etapes = $EtapeRepo->getAll();
+            var_dump($etapes);
             // TODO: include the Etape Views
-            require_once __DIR__ . '/../Views/fan/Grande_Depart.php';
+            require_once './Views/fan/Parcours.php';
+ 
+            // require_once __DIR__ . '/../Views/fan/Parcours.php';
         } catch (\Exception $e) {
             $this->session->set('Error', $e->getMessage());
             header('Location: ' . $_SERVER['HTTP_REFERER']);

@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 namespace Repository;
 
-use Interfaces\IEtapesRepository as InterfacesIEtapesRepository;
+use Repository\Interfaces\IEtapesRepository as InterfacesEtapesRepository;
+use Entity\Etapes;
 use PDO;
 
-class EtapesRepository implements InterfacesIEtapesRepository
+class EtapesRepository implements InterfacesEtapesRepository
 {
     private $db;
     private $table = 'etape';
@@ -22,6 +23,20 @@ class EtapesRepository implements InterfacesIEtapesRepository
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            $etapes = [];
+            foreach ($results as $row) {
+                $etapes[] = new Etapes (
+                    $row->id,
+                    $row->description,
+                    $row->region,
+                    $row->image,
+                    $row->start_date,
+                    $row->difficulte,
+                    $row->course_id
+                );
+            }
+            return $etapes;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
@@ -79,4 +94,5 @@ class EtapesRepository implements InterfacesIEtapesRepository
             echo $e->getMessage();
             return null;
         }
-    }}
+    }
+}

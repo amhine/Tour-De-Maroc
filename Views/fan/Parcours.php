@@ -16,21 +16,26 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y">
+                    <?php 
+                        
+                        foreach ($etapes as $etape) :
+                    ?>
                     <tr class="hover:bg-gray-50">
-                        <td class="py-4 px-4">1</td>
+                        <td class="py-4 px-4"><?= $etape->__get($id) ?></td>
                         <td class="py-4 px-4">
                             <i class="fas fa-road text-gray-600"></i>
-                            <span class="ml-2 text-sm text-gray-600">PLAT</span>
+                            <span class="ml-2 text-sm text-gray-600"><?= $etape->__get($description) ?></span>
                         </td>
-                        <td class="py-4 px-4 text-sm">SAM. 05/07/2025</td>
-                        <td class="py-4 px-4 font-medium">LILLE MÉTROPOLE > LILLE MÉTROPOLE</td>
-                        <td class="py-4 px-4">185 KM</td>
+                        <td class="py-4 px-4 text-sm"><?= $etape->__get($start_date) ?></td>
+                        <td class="py-4 px-4 font-medium"><?= $etape->__get($region) ?></td>
+                        <td class="py-4 px-4"><?= $etape->__get($difficulte) ?></td>
                         <td class="py-4 px-4">
                             <button class="bg-black text-white px-4 py-1 text-sm hover:bg-yellow-400 transition-colors">
                                 ÉTAPE 1
                             </button>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                     <!-- More stage rows... -->
                 </tbody>
             </table>
