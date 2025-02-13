@@ -12,6 +12,7 @@ use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
 use Controllers\PhotoController;
+use Controllers\HistoriqueController;
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -49,6 +50,10 @@ $route->add('GET', '/photos', [PhotoController::class, 'getPhotos']);
 $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 
 
+// historique routes
+$route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
+$route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
+$route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
 
 $method = $_SERVER['REQUEST_METHOD'];
