@@ -30,7 +30,7 @@ class Etapes
         $startDate,
         $difficulte,
         $courseId,
-        $categorieId,
+        $ctg_name,
         $frape,
         $type,
         $date,
@@ -46,7 +46,7 @@ class Etapes
         $this->startDate = Validator::ValidateData($startDate);
         $this->difficulte = Validator::ValidateData($difficulte);
         $this->courseId = Validator::ValidateData($courseId);
-        $this->categorieId = Validator::ValidateData($categorieId);
+        $this->categorieId = Validator::ValidateData($ctg_name);
         $this->frape = Validator::ValidateData($frape);
         $this->type = Validator::ValidateData($type);
         $this->date = Validator::ValidateData($date);

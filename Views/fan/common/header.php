@@ -172,11 +172,11 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Left Navigation -->
                 <div class="flex items-center space-x-6">
-                    <a href="" class="font-bold hover:text-yellow-400">HOME</a>
-                    <a href="Parcours" class="font-bold hover:text-yellow-400">PARCOURS 2025</a>
-                    <a href="Grande_Depart" class="font-bold hover:text-yellow-400">GRANDS DÉPARTS</a>
-                    <a href="Culture" class="font-bold hover:text-yellow-400">CULTURE TOUR</a>
-                    <a href="Video" class="font-bold hover:text-yellow-400">VIDÉOS</a>
+                    <a href="/" class="font-bold hover:text-yellow-400">HOME</a>
+                    <a href="/Parcours" class="font-bold hover:text-yellow-400">PARCOURS 2025</a>
+                    <a href="/Grande_Depart" class="font-bold hover:text-yellow-400">GRANDS DÉPARTS</a>
+                    <a href="/Culture" class="font-bold hover:text-yellow-400">CULTURE TOUR</a>
+                    <a href="/Video" class="font-bold hover:text-yellow-400">VIDÉOS</a>
                 </div>
 
                 <!-- Right Navigation -->

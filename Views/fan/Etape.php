@@ -78,15 +78,15 @@
                         <li class="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded transition-colors duration-200">
                             <span class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full">S</span>
                             <div>
-                                <p class="font-bold">Sprint intermédiaire</p>
-                                <p class="text-sm text-gray-600">Fougères - km 82</p>
+                                <p class="font-bold">Sprint <?= $etape->ctg_name ?></p>
+                                <p class="text-sm text-gray-600"><?= $etape->depart ?> - km 82</p>
                             </div>
                         </li>
                         <li class="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded transition-colors duration-200">
                             <span class="w-8 h-8 flex items-center justify-center bg-yellow-500 text-white rounded-full">R</span>
                             <div>
                                 <p class="font-bold">Ravitaillement</p>
-                                <p class="text-sm text-gray-600">Liffré - km 135</p>
+                                <p class="text-sm text-gray-600"><?= $etape->arrivee ?> - km 135</p>
                             </div>
                         </li>
                     </ul>
