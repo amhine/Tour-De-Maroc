@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Entity;
 
@@ -24,7 +24,7 @@ class Etapes
         $this->difficulte = Validator::ValidateData($difficulte);
         $this->course_id = Validator::ValidateData($course_id);
     }
-    
+
     public function __get($name)
     {
         return $this->$name;
@@ -34,5 +34,4 @@ class Etapes
     {
         $this->$name = Validator::ValidateData($value);
     }
-
 }

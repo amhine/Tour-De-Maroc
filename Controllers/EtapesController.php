@@ -22,7 +22,6 @@ class EtapesController
         $EtapeRepo = new EtapesRepository($this->db);
         try {
             $etapes = $EtapeRepo->getAll();
-            var_dump($etapes);
             // TODO: include the Etape Views
             require_once './Views/fan/Parcours.php';
  
