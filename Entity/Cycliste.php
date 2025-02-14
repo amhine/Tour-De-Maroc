@@ -2,7 +2,7 @@
 
 namespace Entity;
 
-class Cyclist
+class Cycliste
 {
     private $id;
     private $nom;

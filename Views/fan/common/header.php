@@ -157,7 +157,7 @@
                         <button class="text-xl">
                             <i class="fas fa-bars"></i>
                         </button>
-                        <button class="bg-black text-white px-4 py-1 text-xs font-bold hover:bg-yellow-400">
+                        <a href="/Login" class="bg-black text-white px-4 py-1 text-xs font-bold hover:bg-yellow-400">
                             JE ME CONNECTE
                         </button>
                     </div>
