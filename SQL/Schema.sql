@@ -184,3 +184,15 @@ CREATE TABLE visitlogs (
     log_city varchar(255) NOT NULL,
     log_region varchar(255) NOT NULL
 )
+
+CREATE TABLE IF NOT EXISTS public.visitors
+(
+    id integer NOT NULL DEFAULT nextval('visitors_id_seq'::regclass),
+    ip_address character varying(45) COLLATE pg_catalog."default" NOT NULL,
+    country character varying(100) COLLATE pg_catalog."default",
+    city character varying(100) COLLATE pg_catalog."default",
+    visited_at timestamp without time zone NOT NULL,
+    page_visited character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT visitors_pkey PRIMARY KEY (id)
+)
+
