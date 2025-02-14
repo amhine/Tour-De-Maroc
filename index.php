@@ -12,6 +12,7 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+use Controllers\CyclisteController;
 
 use Controllers\PhotoController;
 
@@ -53,6 +54,10 @@ $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
 
+
+// Cycliste routes
+$route->add('GET', '/cycliste/profile', [CyclisteController::class, 'profile']);
+
 // photo routes
 $route->add('POST', '/photos', [PhotoController::class, 'addPhoto']);
 $route->add('GET', '/photos', [PhotoController::class, 'getPhotos']);
@@ -63,7 +68,6 @@ $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
-
 
 
 $method = $_SERVER['REQUEST_METHOD'];
