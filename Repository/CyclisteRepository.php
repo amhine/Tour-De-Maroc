@@ -2,12 +2,12 @@
 
 namespace Repository;
 
-use Entity\Cyclist;
+use Entity\Cycliste;
 use PDO;
 
-use Repository\Interfaces\ICyclistRepository as InterfaceCyclisteRepository;
+use Repository\Interfaces\ICyclisteRepository as InterfaceCyclisteRepository;
 
-class CyclistRepository implements InterfaceCyclisteRepository
+class CyclisteRepository implements InterfaceCyclisteRepository
 {
     private $db;
 
@@ -15,7 +15,7 @@ class CyclistRepository implements InterfaceCyclisteRepository
         $this->db = $db;
     }
 
-    public function save(Cyclist $cyclist): bool {
+    public function save(Cycliste $cyclist): bool {
         $query = "INSERT INTO public.cycliste (
                       nom, prenom, email, password, fk_role_id, age, status, image_profile, wallet, 
                       acheivements, first_name, last_name, team, nationality, preferred_race_type, height_cm, weight_kg

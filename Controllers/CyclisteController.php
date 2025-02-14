@@ -1,10 +1,12 @@
 <?php 
 namespace Controllers;
 use Core\Database;
+use Entity\Cycliste;
+use Repository\CyclisteRepository;
 use Helpers\Session;
-use Entity\Cyclist;
+use Helpers\Validator;
 use PDO;
-use Repository\CyclistRepository;
+use Exception;
 
 class CyclisteController {
     private $db;
@@ -15,49 +17,56 @@ class CyclisteController {
     {
         $this->db = Database::getConnection()->conn;
         $this->session = new Session();
-        $this->cyclisteRepository = new CyclistRepository($this->db);
+        $this->cyclisteRepository = new CyclisteRepository($this->db);
     }
 
-    public function index() {
-        $this->session->set('', '' );
-        require_once __DIR__ . '/../Views/cycliste/cyc_home.php';
-    }
-
-    
     public function profile() {
-        $this->session->set('', '' );
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $db = new PDO('pgsql:host=localhost;dbname=your_database', 'username', 'password');
-            $cyclistRepository = new CyclistRepository($this->db);
+        $message = '';
         
-            if ($this->saveProfile($_POST)) {
-                echo "<p class='text-green-600'>Profil enregistré avec succès!</p>";
-            } else {
-                echo "<p class='text-red-600'>Échec de l'enregistrement du profil.</p>";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            try {
+                // Handle image validation and upload
+                $imageProfile = '';
+                if (isset($_FILES['image_profile']) && $_FILES['image_profile']['error'] === UPLOAD_ERR_OK) {
+                    $imageProfile = Validator::ValidateImage($_FILES['image_profile']);
+                }
+                
+                // Add the image path to POST data
+                $_POST['image_profile'] = $imageProfile;
+                
+                if ($this->saveProfile($_POST)) {
+                    $message = "<p class='text-green-600'>Profil enregistré avec succès!</p>";
+                } else {
+                    $message = "<p class='text-red-600'>Échec de l'enregistrement du profil.</p>";
+                }
+            } catch (Exception $e) {
+                $message = "<p class='text-red-600'>Erreur: " . htmlspecialchars($e->getMessage()) . "</p>";
             }
         }
+        
         require_once __DIR__ . '/../Views/cycliste/profile.php';
     }
 
     private function saveProfile(array $formData): bool {
-        $cyclist = new Cyclist();
-        $cyclist->setNom($formData['nom'] ?? '');
-        $cyclist->setPrenom($formData['prenom'] ?? '');
-        $cyclist->setEmail($formData['email'] ?? '');
-        $cyclist->setPassword($formData['password'] ?? '');
-        $cyclist->setFkRoleId($formData['fk_role_id'] ?? 1); 
-        $cyclist->setAge($formData['age'] ?? null);
-        $cyclist->setStatus($formData['status'] ?? 'inactive');
-        $cyclist->setImageProfile($formData['image_profile'] ?? '');
-        $cyclist->setWallet($formData['wallet'] ?? 0);
-        $cyclist->setAchievements($formData['achievements'] ?? '');
-        $cyclist->setFirstName($formData['first_name'] ?? '');
-        $cyclist->setLastName($formData['last_name'] ?? '');
-        $cyclist->setTeam($formData['team'] ?? 'Équipe par défaut');
-        $cyclist->setNationality($formData['nationality'] ?? '');
-        $cyclist->setPreferredRaceType($formData['preferred_race_type'] ?? '');
-        $cyclist->setHeightCm($formData['height_cm'] ?? null);
-        $cyclist->setWeightKg($formData['weight_kg'] ?? null);
+        $cyclist = new Cycliste();
+        
+        $cyclist->setNom($formData['nom']);
+        $cyclist->setPrenom($formData['prenom']);
+        $cyclist->setEmail($formData['email']);
+        $cyclist->setPassword(password_hash($formData['password'], PASSWORD_DEFAULT));
+        $cyclist->setFkRoleId(2); 
+        $cyclist->setAge((int)$formData['age']);
+        $cyclist->setStatus('active');
+        $cyclist->setImageProfile($formData['image_profile']);
+        $cyclist->setWallet(0); 
+        $cyclist->setAchievements($formData['achievements']);
+        $cyclist->setFirstName($formData['prenom']); 
+        $cyclist->setLastName($formData['nom']); 
+        $cyclist->setTeam('Default Team');
+        $cyclist->setNationality($formData['nationality']);
+        $cyclist->setPreferredRaceType($formData['preferred_race_type']);
+        $cyclist->setHeightCm((int)$formData['height_cm']);
+        $cyclist->setWeightKg((int)$formData['weight_kg']);
 
         return $this->cyclisteRepository->save($cyclist);
     }

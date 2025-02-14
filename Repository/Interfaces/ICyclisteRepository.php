@@ -1,11 +1,11 @@
 <?php
 
 namespace Repository\Interfaces;
-use Entity\Cyclist;
+use Entity\Cycliste;
 
-interface ICyclistRepository
+interface ICyclisteRepository
 {
     
 
-    public function save(Cyclist $cyclist): bool;
+    public function save(Cycliste $cyclist): bool;
 }

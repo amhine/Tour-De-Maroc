@@ -76,5 +76,33 @@ $roles = $roleController->getRoles();
                 <a href="/Login" class="text-black font-bold">Connexion</a>
             </div>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        <?php
+        $message = '';
+        $key = '';
+        if (isset($_SESSION['Error'])) {
+            $message = $_SESSION['Error'];
+            $key = "error";
+            unset($_SESSION['Error']);
+        } elseif (isset($_SESSION['Success'])) {
+            $message = $_SESSION['Success'];
+            $key = "success";
+            unset($_SESSION['Success']);
+        }
+        ?>
+        document.addEventListener('DOMContentLoaded', function() {
+            let message = "<?= $message; ?>";
+            let key = "<?= $key ?>";
+            if (message) {
+                Swal.fire({
+                    icon: key,
+                    title: 'Message',
+                    text: message,
+                });
+            }
+        });
+    </script>
 </body>
 </html>
