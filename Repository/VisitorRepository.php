@@ -21,8 +21,8 @@ class VisitorRepository implements InterfaceVisitorRepository
     {
         try {
             $stmt = $this->db->prepare(
-                'INSERT INTO $this->table (ip_address, country, city, visited_at, page_visited) 
-                 VALUES (:ip_address, :country, :city, :visited_at, :page_visited)'
+                "INSERT INTO {$this->table} (ip_address, country, city, visited_at, page_visited) 
+                 VALUES (:ip_address, :country, :city, :visited_at, :page_visited)"
             );
             $stmt->execute([
                 ':ip_address' => $visitor->getIpAddress(),
@@ -36,13 +36,24 @@ class VisitorRepository implements InterfaceVisitorRepository
         }
     }
 
-    public function findAll(): object
+    public function findAll(): array
     {
         try {
-            $stmt = $this->db->query('SELECT * FROM visitors ORDER BY visited_at DESC');
+            $stmt = $this->db->query("SELECT * FROM {$this->table} ORDER BY visited_at DESC");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo $e->getMessage();
+            return [];
+        }
+    }
+
+    public function countAll(): int {
+        try {
+            $stmt = $this->db->query("SELECT COUNT(*) FROM {$this->table}");
+            return (int) $stmt->fetchColumn();
+        } catch (Exception $e) {
+            error_log("Error counting rows: " . $e->getMessage());            
+            return 0;
         }
     }
 }
