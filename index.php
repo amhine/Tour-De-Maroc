@@ -45,16 +45,11 @@ $route->add('POST', '/Register', [AuthController::class, 'saveRegistration']);
 $route->add('POST', '/Login', [AuthController::class, 'saveLogin']); 
 
 
-// // $route->add('GET', '/ResetPassword', [AuthController::class, 'affresetpasswordForm']);
-// $route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
-// $route->add('POST', '/ForgetPassword', [AuthController::class, 'SendResetToken']);
-// $route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
-// $route->add('POST', '/UpdatePassword', [AuthController::class, 'ResetPasswordForm']);
 
 $route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
 $route->add('POST', '/ForgetPassword', [AuthController::class, 'SendResetToken']);
 $route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
-$route->add('POST', '/ResetPassword/{token}', [AuthController::class, 'UpdatePassword']); // Nouvelle méthode
+$route->add('POST', '/ResetPassword/{token}', [AuthController::class, 'UpdatePassword']); 
 
 
 $route->add('GET', '/Logout', [AuthController::class, 'logout']);
