@@ -12,10 +12,21 @@ class VisitorController
     private $visitorRepository;
     private $db;
 
-    public function __construct(VisitorRepository $visitorRepository)
+    public function __construct()
     {
         $this->db = Database::getConnection()->conn;
         $this->visitorRepository = new VisitorRepository($this->db);
+    }
+
+    public function showVisitors(): void
+    {
+        $visitors = $this->visitorRepository->findAll();
+        $countAll = $this->visitorRepository->countAll();
+        // echo "<pre>";
+        // var_dump($visitors);
+        // echo "</pre>";
+        // die();
+        require_once __DIR__ . '/../Views/admin/visitors.php    ';
     }
 
     public function trackVisitor(): void
@@ -33,16 +44,6 @@ class VisitorController
         $this->visitorRepository->save($visitor);
     }
 
-    
-    public function showVisitors(): void
-    {
-        $visitors = $this->visitorRepository->findAll();
-        echo "<pre>";
-        print_r($visitors);
-        echo "</pre>";
-        die;
-        require_once __DIR__ . '/../Views/admin/visitors.php    ';
-    }
     
     private function getGeolocationData($ip): array
     {
