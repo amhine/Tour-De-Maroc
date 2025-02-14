@@ -11,6 +11,7 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+use Controllers\CyclisteController;
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -42,8 +43,8 @@ $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
 
-
-
+// Cycliste routes
+$route->add('GET', '/cycliste/profile', [CyclisteController::class, 'profile']);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
