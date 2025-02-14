@@ -23,13 +23,14 @@ class RoleController
     public function getRoles() {
         try {
             $roles = $this->roleRepo->getAll();
+            include_once './Views/fan/Register.php'; 
             return $roles;
-            include_once './Views/fan/Register.php';
         } catch (\Exception $e) {
             $this->session->set('Error', $e->getMessage());
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
+    
     public function getRoleByName($role_name) {
         try {
             $roles = $this->roleRepo->getRoleByName($role_name);

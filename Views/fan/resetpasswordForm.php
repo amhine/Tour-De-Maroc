@@ -18,36 +18,28 @@
                 <img src="/api/placeholder/200/100" alt="Tour de France Club" class="h-16">
             </div>
 
-            <h2 class="text-2xl font-bold text-center mb-6">CONNEXION</h2>
+            <h2 class="text-2xl font-bold text-center mb-6">ResetPassword</h2>
 
 
             <!-- Login Form Fields -->
-            <form class="space-y-4" action="/Login" method="POST">
+            <form class="space-y-4" action="/ResetpasswordForm." method="POST">
+            <div>
+        <label class="block text-sm mb-1">Mot de passe</label>
+        <input type="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400" required>
+    </div>
     <div>
-        <label class="block text-sm mb-1">Adresse électronique ou numéro de téléphone</label>
-        <input name="email" type="text" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400">
+        <label class="block text-sm mb-1">Confirmation du mot de passe</label>
+        <input type="password" name="confirm_password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400" required>
     </div>
 
-    <div>
-        <label class="block text-sm mb-1">Mot de passe</label>
-        <input name="password" type="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400">
-    </div>
+   
 
     <button type="submit" class="w-full bg-black text-white py-3 rounded font-bold hover:bg-gray-800">
-        CONNEXION
+        Envoyer
     </button>
 </form>
 
-            <div class="text-center mt-6 space-y-2">
-                <div>
-                    <span class="text-sm">Vous n'avez pas encore de compte ? </span>
-                    <a href="/Register" class="text-black font-bold">Inscription</a>
-                </div>
-                <div>
-                    <a href="/ForgetPassword" class="text-sm text-black hover:underline">Mot de passe oublié ?</a>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Footer -->
         <div class="text-center mt-6">
