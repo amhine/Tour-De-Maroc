@@ -39,12 +39,12 @@ class Router
                 }
 
                 if ($isMatch) {
-                    $VisitorsController = new VisitorController();
-                    $VisitorsController->trackVisitor();
+                    //$VisitorsController = new VisitorController();
+                    //$VisitorsController->trackVisitor();
                     $class = $route['handler'][0];
                     $method = $route['handler'][1];
                     $instance = new $class();
-                    var_dump($params);
+                    //var_dump($params);
                     return call_user_func_array([$instance, $method], $params);
                 }
             }

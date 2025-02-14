@@ -3,6 +3,7 @@
 namespace Repository;
 
 use Exception;
+use Controllers\MailService;
 
 class AuthRepository
 {
@@ -14,7 +15,6 @@ class AuthRepository
     {
         $this->db = $db;
         $this->session = $session;
-
     }
     public function isExist($email)
     {
@@ -23,20 +23,21 @@ class AuthRepository
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
-            
+
             $user = $stmt->fetch();
-            return $user ? $user : null;  
+            return $user ? $user : null;
         } catch (Exception $e) {
             echo 'Error check existing email: ' . $e->getMessage();
             return null;
         }
     }
-    
-    public function login($email, $password) {
+
+    public function login($email, $password)
+    {
         $user = $this->isExist($email);
-        if($user && password_verify($password, $user['password'])) {
-            if($user['status'] !== 'inactive') {
-                foreach ($user as $key => $value){
+        if ($user && password_verify($password, $user['password'])) {
+            if ($user['status'] !== 'inactive') {
+                foreach ($user as $key => $value) {
                     $this->session->set($key, $value);
                 }
                 return $user;
@@ -45,12 +46,12 @@ class AuthRepository
             return null;
         }
     }
-    
+
 
     public function signup($instance)
     {
         $sql = "INSERT INTO {$this->table} (nom, prenom, email, password, fk_role_id, status) VALUES(:nom, :prenom, :email, :password, :fk_role_id, :status::status)";
-        if($this->isExist($instance->email)) {
+        if ($this->isExist($instance->email)) {
             throw new Exception('Email is Already Exist');
         }
         try {
@@ -62,7 +63,7 @@ class AuthRepository
             $stmt->bindParam(':password', $hashedPassword);
             $stmt->bindParam(':fk_role_id', $instance->fk_role_id);
             $stmt->bindParam(':status', $instance->status);
-            if($stmt->execute()) {
+            if ($stmt->execute()) {
                 return $this->db->lastInsertId();
             }
             return null;
@@ -83,32 +84,14 @@ class AuthRepository
     public function validateUser()
     {
         $email = $this->session->get('email');
-        if($email) {
+        if ($email) {
             return $this->isExist($email);
         }
         return null;
     }
 
-    // public function SendResetToken($email) {
-    //     $user = $this->isExist($email);
-    //     if($user) {
-    //         $token = self::generateToken();
-    //         $sql = "INSERT INTO resetpassword (reset_email, reset_token, reset_status) VALUES (:email, :token, :status)";
-    //         try {
-    //             $stmt = $this->db->prepare($sql);
-    //             $stmt->bindParam(':email', $email);
-    //             $stmt->bindParam(':token', $token);
-    //             $stmt->bindValue(':status', 'active');
-    //             if($stmt->execute()) {
-    //                 $url = "http://localhost:8000/ResetPassword/$token";
-    //                 // TODO: send Email
-    //             }
-    //         } catch (Exception $e) {
-    //             echo $e->getMessage();
-    //         }
-    //     }
-    // }
-    public function SendResetToken($email) {
+    public function SendResetToken($email)
+    {
         $user = $this->isExist($email);
         if ($user) {
             $token = self::generateToken();
@@ -119,49 +102,27 @@ class AuthRepository
                 $stmt->bindParam(':token', $token);
                 $stmt->bindValue(':status', 'active');
                 if ($stmt->execute()) {
-                    $url = "http://localhost:8000/ResetPassword/$token"; 
-                    $this->sendResetEmail($email, $url); 
-                    return true;
+                    $url = "http://tour-de-maroc.test//ResetPassword/$token";
+                    ob_start();
+                    include __DIR__ . '/../Views/emails/reset-notification-template.php';
+                    $emailContent = ob_get_clean();
+                    return MailService::sendMail($email, 'Tour De Maroc - Réinitialisation de mot de passe', $emailContent);
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
         }
-        return false;
-    }
-    
-    private function sendResetEmail($email, $url) {
-        $subject = "Réinitialisation de votre mot de passe";
-        $message = "
-            <html>
-            <head>
-                <title>Réinitialisation de mot de passe</title>
-            </head>
-            <body>
-                <p>Bonjour,</p>
-                <p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le lien ci-dessous pour procéder :</p>
-                <a href='$url' style='background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;'>
-                    Réinitialiser mon mot de passe
-                </a>
-                <p>Si vous n'avez pas demandé cette réinitialisation, veuillez ignorer cet e-mail.</p>
-            </body>
-            </html>
-        ";
-    
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: no-reply@tourdeMaroc.com" . "\r\n";
-    
-        mail($email, $subject, $message, $headers);
     }
 
-    public function validateToken($token) {
+    public function validateToken($token)
+    {
         $sql = "SELECT * FROM resetpassword WHERE reset_token = :token AND reset_status = :status";
         try {
             $stmt = $this->db->prepare($sql);
+            $status = 'active';
             $stmt->bindParam(':token', $token);
-            $stmt->bindParam(':status', 'active');
-            if($stmt->execute()) {
+            $stmt->bindParam(':status', $status); 
+            if ($stmt->execute()) {
                 return $stmt->fetch();
             }
         } catch (Exception $e) {
@@ -170,37 +131,54 @@ class AuthRepository
         return null;
     }
 
-    public function ChangePassword($password, $token) {
-        $sql = "SELECT * FROM resetpassword WHERE reset_token = :token AND reset_status = :status";
+   
+
+
+    public function ChangePassword($password, $token)
+    {
         try {
+           
+            $sql = "SELECT * FROM resetpassword WHERE reset_token = :token AND reset_status = :status";
             $stmt = $this->db->prepare($sql);
+            $status = 'active';
             $stmt->bindParam(':token', $token);
-            $stmt->bindParam(':status', 'active');
-            if($stmt->execute()) {
+            $stmt->bindParam(':status', $status);
+            
+            if ($stmt->execute()) {
                 $reset = $stmt->fetch();
-                if($reset) {
+                
+                if ($reset) {
                     $sql = "UPDATE Users SET password = :password WHERE email = :email";
                     $stmt = $this->db->prepare($sql);
-                    $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
+                    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                    
+                    $stmt->bindValue(':password', $hashedPassword);
                     $stmt->bindParam(':email', $reset['reset_email']);
-                    if($stmt->execute()) {
+                    
+                    if ($stmt->execute()) {
                         $this->killresetToken($token);
+                        return true;
                     }
                 }
             }
+            return false;
         } catch (Exception $e) {
-            echo $e->getMessage();
-        }
+                    echo $e->getMessage();
+                }
     }
 
-    public function killresetToken($token) {
+
+  
+    public function killresetToken($token)
+    {
+        $status = 'inactive';
         $sql = "UPDATE resetpassword SET reset_status = :status WHERE reset_token = :token";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':status', 'inactive');
+        $stmt->bindValue(':status', 'inactive');
         $stmt->bindParam(':token', $token);
         $stmt->execute();
     }
-
+   
     public static function generateToken()
     {
         return bin2hex(random_bytes(50));
