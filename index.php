@@ -22,6 +22,7 @@ use Controllers\RoleController;
 
 
 // use Controllers\RoleController;
+// use Controllers\RoleController;
 
 
 
@@ -66,10 +67,14 @@ $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 
 
 // historique routes 
+// historique routes 
 $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
+// admin routes
+$route->add('GET', '/dashboard', ['??', 'index']);
+$route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
 // admin routes
 $route->add('GET', '/dashboard', ['??', 'index']);
 $route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
