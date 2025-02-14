@@ -98,7 +98,7 @@ class AuthRepository
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':token', $token);
-                $stmt->bindParam(':status', 'active');
+                $stmt->bindValue(':status', 'active');
                 if($stmt->execute()) {
                     $url = "http://localhost:8000/ResetPassword/$token";
                     // TODO: send Email
