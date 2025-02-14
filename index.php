@@ -59,6 +59,7 @@ $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy'])
 
 // Cycliste routes
 $route->add('GET', '/cycliste/profile', [CyclisteController::class, 'profile']);
+$route->add('GET', '/cycliste', [CyclisteController::class, 'index']);
 
 // photo routes
 $route->add('POST', '/photos', [PhotoController::class, 'addPhoto']);
