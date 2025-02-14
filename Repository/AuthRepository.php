@@ -89,9 +89,28 @@ class AuthRepository
         return null;
     }
 
+    // public function SendResetToken($email) {
+    //     $user = $this->isExist($email);
+    //     if($user) {
+    //         $token = self::generateToken();
+    //         $sql = "INSERT INTO resetpassword (reset_email, reset_token, reset_status) VALUES (:email, :token, :status)";
+    //         try {
+    //             $stmt = $this->db->prepare($sql);
+    //             $stmt->bindParam(':email', $email);
+    //             $stmt->bindParam(':token', $token);
+    //             $stmt->bindValue(':status', 'active');
+    //             if($stmt->execute()) {
+    //                 $url = "http://localhost:8000/ResetPassword/$token";
+    //                 // TODO: send Email
+    //             }
+    //         } catch (Exception $e) {
+    //             echo $e->getMessage();
+    //         }
+    //     }
+    // }
     public function SendResetToken($email) {
         $user = $this->isExist($email);
-        if($user) {
+        if ($user) {
             $token = self::generateToken();
             $sql = "INSERT INTO resetpassword (reset_email, reset_token, reset_status) VALUES (:email, :token, :status)";
             try {
@@ -99,14 +118,41 @@ class AuthRepository
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':token', $token);
                 $stmt->bindValue(':status', 'active');
-                if($stmt->execute()) {
-                    $url = "http://localhost:8000/ResetPassword/$token";
-                    // TODO: send Email
+                if ($stmt->execute()) {
+                    $url = "http://localhost:8000/ResetPassword/$token"; 
+                    $this->sendResetEmail($email, $url); 
+                    return true;
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
         }
+        return false;
+    }
+    
+    private function sendResetEmail($email, $url) {
+        $subject = "Réinitialisation de votre mot de passe";
+        $message = "
+            <html>
+            <head>
+                <title>Réinitialisation de mot de passe</title>
+            </head>
+            <body>
+                <p>Bonjour,</p>
+                <p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le lien ci-dessous pour procéder :</p>
+                <a href='$url' style='background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;'>
+                    Réinitialiser mon mot de passe
+                </a>
+                <p>Si vous n'avez pas demandé cette réinitialisation, veuillez ignorer cet e-mail.</p>
+            </body>
+            </html>
+        ";
+    
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: no-reply@tourdeMaroc.com" . "\r\n";
+    
+        mail($email, $subject, $message, $headers);
     }
 
     public function validateToken($token) {

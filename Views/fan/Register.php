@@ -76,5 +76,9 @@ $roles = $roleController->getRoles();
                 <a href="/Login" class="text-black font-bold">Connexion</a>
             </div>
         </div>
+         <!-- Footer -->
+         <div class="text-center mt-6">
+            <a href="#" class="text-sm text-gray-600 hover:underline">Mentions légales</a>
+        </div>
 </body>
 </html>
