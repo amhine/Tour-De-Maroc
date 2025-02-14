@@ -2,8 +2,8 @@
 
 namespace Repository;
 
-
 use Exception;
+
 class AuthRepository
 {
     private $db;
