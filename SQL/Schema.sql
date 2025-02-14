@@ -1,8 +1,8 @@
 -- SQL Code definir la schema de base de données
 
-CREATE DATABASE tourmaroc
+-- CREATE DATABASE tourmaroc
 
-\c tourmaroc;
+-- \c tourmaroc;
 
 CREATE TYPE status AS ENUM('active', 'inactive');
 CREATE TYPE roles AS ENUM ('admin', 'cycliste', 'fan');
@@ -21,7 +21,8 @@ CREATE TABLE Users (
                        password VARCHAR(255)  NOT NULL,
                        fk_role_id INT NOT NULL,
                        PRIMARY KEY (id),
-                       FOREIGN KEY (fk_role_id) REFERENCES Role(role_id)
+                       FOREIGN KEY (fk_role_id) REFERENCES Role(role_id),
+                       status status NOT NULL DEFAULT 'active'
 );
 
 CREATE TABLE Admin () INHERITS (Users);
@@ -113,17 +114,12 @@ CREATE TABLE QA (
 );
 
 CREATE TABLE Favorite (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a275552 (Database Schema Finale design)
                           favorite_id SERIAL,
                           fk_user_id INT NOT NULL,
                           fk_cycliste_id INT NOT NULL,
                           PRIMARY KEY (favorite_id),
                           FOREIGN KEY (fk_user_id) REFERENCES Users(id),
                           FOREIGN KEY (fk_cycliste_id) REFERENCES Users(id)
-<<<<<<< HEAD
 );
 
 CREATE TABLE ResultsPerEtape (
@@ -134,35 +130,6 @@ CREATE TABLE ResultsPerEtape (
                                  PRIMARY KEY (id),
                                  FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
                                  FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
-=======
-    favorite_id SERIAL,
-    fk_user_id INT NOT NULL,
-    fk_cyclisme_id INT NOT NULL,
-    PRIMARY KEY (favorite_id)
-
-);
-
-CREATE TABLE ResultsPerEtape (
-    id SERIAL,
-    fk_cyliste_id INT NOT NULL,
-    fk_etape_id INT NOT NULL,
-    duree TIMESTAMP,
-    PRIMARY KEY (id),
-    FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
-    FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
->>>>>>> 827979a (remove unnecessary table)
-=======
-);
-
-CREATE TABLE ResultsPerEtape (
-                                 id SERIAL,
-                                 fk_cyliste_id INT NOT NULL,
-                                 fk_etape_id INT NOT NULL,
-                                 duree TIMESTAMP,
-                                 PRIMARY KEY (id),
-                                 FOREIGN KEY (fk_cyliste_id) REFERENCES Users(id),
-                                 FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
->>>>>>> a275552 (Database Schema Finale design)
 );
 
 CREATE TABLE Likes (
@@ -197,8 +164,10 @@ CREATE TABLE signal (
                         signale_id SERIAL,
                         description TEXT NOT NULL,
                         fk_etape_id INT NOT NULL,
+                        fk_user_id INT NOT NULL,
                         PRIMARY KEY (signale_id),
-                        FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id)
+                        FOREIGN KEY (fk_etape_id) REFERENCES Etape(etape_id),
+                        FOREIGN KEY (fk_user_id) REFERENCES Users(id)
 );
 
 CREATE TABLE Inscription (
@@ -217,3 +186,12 @@ CREATE TABLE resetpassword (
                                reset_status status DEFAULT 'active',
                                PRIMARY KEY (reset_id)
 );
+
+CREATE TABLE visitlogs (
+    log_id SERIAL NOT NULL,
+    log_date timestamp,
+    log_ip VARCHAR(255) NOT NULL ,
+    log_country varchar(255) NOT NULL ,
+    log_city varchar(255) NOT NULL ,
+    log_region varchar(255) NOT NULL
+)

@@ -6,6 +6,6 @@ class GdController
 {
     public function index(): void
     {
-        require './Views/fan/Grande_Depart.php';
+        require_once './Views/fan/Grande_Depart.php';
     }
 }
