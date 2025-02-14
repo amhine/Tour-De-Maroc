@@ -5,16 +5,23 @@ namespace Entity;
 class Cyclist
 {
     private $id;
+    private $nom;
+    private $prenom;
+    private $email;
+    private $password;
+    private $fkRoleId;
+    private $age;
+    private $status;
+    private $imageProfile;
+    private $wallet;
+    private $achievements;
     private $firstName;
     private $lastName;
     private $team;
-    private $age;
     private $nationality;
     private $preferredRaceType;
-    private $height;
-    private $weight;
-    private $bio;
-    private $profilePicture;
+    private $heightCm;
+    private $weightKg;
 
     // Getters and Setters
     public function getId(): ?int {
@@ -23,6 +30,86 @@ class Cyclist
 
     public function setId(?int $id): void {
         $this->id = $id;
+    }
+
+    public function getNom(): ?string {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): void {
+        $this->nom = $nom;
+    }
+
+    public function getPrenom(): ?string {
+        return $this->prenom;
+    }
+
+    public function setPrenom(?string $prenom): void {
+        $this->prenom = $prenom;
+    }
+
+    public function getEmail(): ?string {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): void {
+        $this->email = $email;
+    }
+
+    public function getPassword(): ?string {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): void {
+        $this->password = $password;
+    }
+
+    public function getFkRoleId(): ?int {
+        return $this->fkRoleId;
+    }
+
+    public function setFkRoleId(?int $fkRoleId): void {
+        $this->fkRoleId = $fkRoleId;
+    }
+
+    public function getAge(): ?int {
+        return $this->age;
+    }
+
+    public function setAge(?int $age): void {
+        $this->age = $age;
+    }
+
+    public function getStatus(): ?string {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): void {
+        $this->status = $status;
+    }
+
+    public function getImageProfile(): ?string {
+        return $this->imageProfile;
+    }
+
+    public function setImageProfile(?string $imageProfile): void {
+        $this->imageProfile = $imageProfile;
+    }
+
+    public function getWallet(): ?int {
+        return $this->wallet;
+    }
+
+    public function setWallet(?int $wallet): void {
+        $this->wallet = $wallet;
+    }
+
+    public function getAchievements(): ?string {
+        return $this->achievements;
+    }
+
+    public function setAchievements(?string $achievements): void {
+        $this->achievements = $achievements;
     }
 
     public function getFirstName(): ?string {
@@ -49,14 +136,6 @@ class Cyclist
         $this->team = $team;
     }
 
-    public function getAge(): ?int {
-        return $this->age;
-    }
-
-    public function setAge(?int $age): void {
-        $this->age = $age;
-    }
-
     public function getNationality(): ?string {
         return $this->nationality;
     }
@@ -73,35 +152,19 @@ class Cyclist
         $this->preferredRaceType = $preferredRaceType;
     }
 
-    public function getHeight(): ?int {
-        return $this->height;
+    public function getHeightCm(): ?int {
+        return $this->heightCm;
     }
 
-    public function setHeight(?int $height): void {
-        $this->height = $height;
+    public function setHeightCm(?int $heightCm): void {
+        $this->heightCm = $heightCm;
     }
 
-    public function getWeight(): ?int {
-        return $this->weight;
+    public function getWeightKg(): ?int {
+        return $this->weightKg;
     }
 
-    public function setWeight(?int $weight): void {
-        $this->weight = $weight;
-    }
-
-    public function getBio(): ?string {
-        return $this->bio;
-    }
-
-    public function setBio(?string $bio): void {
-        $this->bio = $bio;
-    }
-
-    public function getProfilePicture(): ?string {
-        return $this->profilePicture;
-    }
-
-    public function setProfilePicture(?string $profilePicture): void {
-        $this->profilePicture = $profilePicture;
+    public function setWeightKg(?int $weightKg): void {
+        $this->weightKg = $weightKg;
     }
 }
