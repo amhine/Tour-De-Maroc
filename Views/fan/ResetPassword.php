@@ -14,7 +14,7 @@
         <!-- Formulaire de réinitialisation de mot de passe -->
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
             <h2 class="text-2xl font-bold text-center mb-6">Réinitialisation du mot de passe</h2>
-            <form class="space-y-4" action="/UpdatePassword" method="POST">
+            <form class="space-y-4" action="/ResetPassword/<?php echo htmlspecialchars($token); ?>" method="POST">
                 <!-- Champ caché pour transmettre le token -->
                 <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
 

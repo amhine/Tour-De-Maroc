@@ -22,7 +22,7 @@
 
 
             <!-- Login Form Fields -->
-            <form class="space-y-4" action="/SendResetToken" method="POST">
+            <form class="space-y-4" action="/ForgetPassword" method="POST">
     <div>
         <label class="block text-sm mb-1">Adresse électronique ou numéro de téléphone</label>
         <input name="email" type="text" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400">
