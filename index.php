@@ -19,10 +19,6 @@ use Controllers\HistoriqueController;
 use Controllers\RoleController;
 
 
-use Controllers\RoleController;
-
-
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 $route = new Router();
