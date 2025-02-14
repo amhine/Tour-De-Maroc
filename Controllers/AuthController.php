@@ -31,8 +31,9 @@ class AuthController
 
     public function resetpasswordPage()
     {
-        // require_once './Views/fan/ForgetPassword.php';
+        require_once './Views/fan/ForgetPassword.php';
     }
+   
 
     public function SendResetToken()
     {
@@ -40,10 +41,12 @@ class AuthController
                 $email = Validator::ValidateEmail($_POST['email']);
                 $authRepository = new AuthRepository($this->db, $this->session);
                 $authRepository->SendResetToken($email);
+                
             }
             catch (\Exception $e) {
             echo $e->getMessage();
         }
+
     }
 
     public function ResetPasswordForm() {
@@ -72,7 +75,7 @@ class AuthController
     public function saveRegistration()
     {
        
- try {
+        try {
                 $nom = Validator::ValidateData($_POST['nom'] );
                 $prenom = Validator::ValidateData($_POST['prenom'] );
                 $email = Validator::ValidateData($_POST['email'] );
