@@ -16,9 +16,8 @@ class CommentsController {
     public function __construct()
     {
         $this->db = Database::getConnection()->conn;
-        // $this->session = new Session();
+        $this->commentsRepo = new CommentsRepository($this->db); 
     }
-
     public function showDashboard() {
         try {
             $comments = $this->commentsRepo->getAll();
@@ -26,7 +25,7 @@ class CommentsController {
             $totalComments = $this->commentsRepo->countAll();
             $hiddenComments = $this->commentsRepo->countHidden();
             
-            include "./dashboard.php";
+            include "./views/admin/Commentsdashboard.php";
             
         } catch (Exception $e) {
             $this->handleError($e);

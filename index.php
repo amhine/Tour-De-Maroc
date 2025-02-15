@@ -56,8 +56,5 @@ $route->dispatch($method, $uri);
 
 
 
-$method = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
 
-$route->dispatch($method, $uri);
 

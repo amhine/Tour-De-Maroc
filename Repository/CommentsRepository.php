@@ -24,7 +24,7 @@ class CommentsRepository {
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         
-        return $stmt->fetchAll(PDO::FETCH_OBJ, Comments::class);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function update(Comments $comment) {
