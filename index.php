@@ -1,7 +1,7 @@
 <?php
 
-require_once 'vendor/autoload.php';
 
+require_once __DIR__ . '/vendor/autoload.php';
 use Core\Router;
 use Controllers\HomeController;
 use Controllers\ParcoursController;
@@ -11,9 +11,8 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+use Controllers\CommentsController;
 
-
-require_once __DIR__ . '/vendor/autoload.php';
 
 $route = new Router();
 
@@ -39,8 +38,20 @@ $route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPassw
 //categorie routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
 $route->add('POST', '/categories', [CategorieController::class, 'store']);
-$route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
-$route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
+$route->add('POST', '/categories/update/{id}', [CategorieController::class, 'update']);
+$route->add('POST', '/categories/delete/{id}', [CategorieController::class, 'destroy']);
+
+// commmentes routes
+$route->add('GET' , '/comments' , [CommentsController::class , 'showDashboard']);
+
+
+
+$method = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
+$route->dispatch($method, $uri);
+
+
 
 
 

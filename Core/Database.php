@@ -14,9 +14,9 @@ class Database
     private $host;
 
     private function __construct() {
-        $this->user = 'younes';
-        $this->password = 'test123';
-        $this->dbname = 'youdemy';
+        $this->user = 'postgres';
+        $this->password = 'yasser';
+        $this->dbname = 'tourmaroc';
         $this->host = 'localhost';
 
         try {
@@ -30,7 +30,7 @@ class Database
     }
     public static function getConnection() {
         if(self::$hasInstance === null) {
-          self::$hasInstance = new Database();
+        self::$hasInstance = new Database();
         }
         return self::$hasInstance;
     }
