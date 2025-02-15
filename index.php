@@ -59,6 +59,12 @@ $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
 
+
+// Cycliste routes
+$route->add('GET', '/cycliste/profile', [CyclisteController::class, 'profile']);
+$route->add('GET', '/cycliste', [CyclisteController::class, 'index']);
+$route->add('GET', '/cycliste', [CyclisteController::class, 'index']);
+
 // photo routes
 $route->add('POST', '/photos', [PhotoController::class, 'addPhoto']);
 $route->add('GET', '/photos', [PhotoController::class, 'getPhotos']);
@@ -70,7 +76,9 @@ $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
-
+// admin routes
+// $route->add('GET', '/dashboard', ['??', 'index']);
+$route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = strtok($_SERVER['REQUEST_URI'], '?');

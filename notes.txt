@@ -1,0 +1,54 @@
+
+## It's a must enter 'X' in the designated row to confirm or validate the action
+
+CHECK:         User Stories:
+                
+                visiteurs:
+               je peux visualiser les étapes de la course "Exp : Calendrier des étapes et obtenir des informations détaillées [lieux, horaires, distances, etc.]
+               les profils des cyclistes
+               le classement général
+               je peux rechercher un cycliste, une équipe, ou une étape via une barre de recherche avancée
+               je peux regarder les vidéos des moments forts des étapes passées;
+               je peux accéder à une section dédiée à l’histoire du Tour du Maroc, avec vidéos et articles interactifs;
+               je peux créer une liste personnalisée de cyclistes à suivre (équipe virtuelle).
+               je peux commenter les étapes ou poser des questions aux cyclistes
+               je peux "liker" une étape ou soutenir un cycliste pour gagner des badges ou des récompenses virtuelles
+               je peux filtrer les étapes par région (Atlas, Sahara.....), difficulté, ou date
+               je peux signaler une donnée incorrecte (ex : temps de course erroné), déclenchant une vérification par l’administrateur
+               je peux voir une page qui affiche le podium (les 3 premiers cyclistes)
+
+               cyclistes: 
+
+               je peux m’inscrire et mettre à jour mes informations personnelles, y compris mon historique de course
+               je peux ajouter mes informations personnelles, mes performances et mes photos
+               je peux consulter une analyse détaillée de mes performances, 
+               
+               --incluant :
+
+               --- La vitesse moyenne par étape : [Vitesse moyenne= Temps / Distance].
+
+               --- Les comparaisons avec d’autres cyclistes.
+
+               --- Points.
+
+               --- Classements.
+
+               Admin:
+
+               je peux ajouter des étapes, des catégories (montagne, plaine, terrain, vélodrome....), ou des défis spéciaux (meilleur sprinteur , Quick Course .....)
+               je peux valider les commentaires et gérer les contenus
+               je peux valider les données partagées par les cyclistes (photos, étapes, informations sur les cyclistes) et envoyer un email de confirmation
+               je peux consulter les statistiques détaillées (par exemple, nombre de visiteurs, interactions sur le site, cyclistes les plus suivis)
+               Ajoutez une section classement des fans où les utilisateurs gagnent des points en participant activement (commentaires, likes, etc.)
+
+               --Nouvelles Fonctionnalités de Logique : "Calcul des Temps Cumulés et Classements":
+
+               ⏱️ En tant que fan, je peux consulter le temps total de chaque cycliste sur l’ensemble des étapes et voir les classements par catégorie :
+
+               --- Classement général.
+
+               --- Meilleur grimpeur.
+
+               --- Meilleur sprinteur.
+
+​
