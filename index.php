@@ -24,24 +24,24 @@ require_once __DIR__ . '/vendor/autoload.php';
 $route = new Router();
 
 $route->add('GET', '/', [HomeController::class, 'index']);
-$route->add('GET', '/Parcours', [EtapesController::class, 'index']);
-$route->add('GET', '/Etapes/{id}', [EtapesController::class, 'show']);
-$route->add('GET', '/Podium', [PodiumController::class, 'index']);
-$route->add('GET', '/Culture', [CultureController::class, 'index']);
-$route->add('GET', '/Video', [VideoController::class, 'index']);
-$route->add('GET', '/Grande_Depart', [GDController::class, 'index']);
+$route->add('GET', '/parcours', [EtapesController::class, 'index']);
+$route->add('GET', '/etapes/{id}', [EtapesController::class, 'show']);
+$route->add('GET', '/podium', [PodiumController::class, 'index']);
+$route->add('GET', '/culture', [CultureController::class, 'index']);
+$route->add('GET', '/video', [VideoController::class, 'index']);
+$route->add('GET', '/grande_Depart', [GDController::class, 'index']);
 
 //auth routes
-$route->add('GET', '/Login', [AuthController::class, 'login']);
-$route->add('GET', '/Register', [AuthController::class, 'register']);
-$route->add('POST', '/Register', [AuthController::class, 'saveRegistration']); 
-$route->add('POST', '/Login', [AuthController::class, 'saveLogin']); 
-$route->add('GET', '/Logout', [AuthController::class, 'logout']);
-$route->add('GET', '/Profile', [AuthController::class, 'profile']);
-$route->add('POST', '/Profile', [AuthController::class, 'update']);
-$route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
-$route->add('POST', '/ForgetPassword', [AuthController::class, 'SendResetToken']);
-$route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
+$route->add('GET', '/login', [AuthController::class, 'login']);
+$route->add('GET', '/register', [AuthController::class, 'register']);
+$route->add('POST', '/register', [AuthController::class, 'saveRegistration']);
+$route->add('POST', '/login', [AuthController::class, 'saveLogin']);
+$route->add('GET', '/logout', [AuthController::class, 'logout']);
+$route->add('GET', '/profile', [AuthController::class, 'profile']);
+$route->add('POST', '/profile', [AuthController::class, 'update']);
+$route->add('GET', '/forgetPassword', [AuthController::class, 'resetpasswordPage']);
+$route->add('POST', '/forgetPassword', [AuthController::class, 'SendResetToken']);
+$route->add('GET', '/resetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
 
 //categorie routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
