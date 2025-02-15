@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,35 +74,36 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
-<!-- Navigation -->
-<nav class="bg-black text-white">
-    <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center h-16">
-            <div class="flex items-center space-x-8">
-<!--                <img src="" alt="Tour de Maroc" class="h-8">-->
-                <a href="#performances" class="nav-link hover:text-yellow-400" data-tab="performances">MES PERFORMANCES</a>
-                <a href="#classements" class="nav-link hover:text-yellow-400" data-tab="classements">CLASSEMENTS</a>
-            </div>
-            <div class="relative">
-                <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <button id="profileButton" class="text-white hover:bg-yellow-400 hover:text-black px-4 py-2 rounded transition-colors duration-300 text-sm flex items-center gap-1">
-                            <span>Tadej Pogačar</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div id="dropdownMenu" class="dropdown-menu absolute right-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[200px] z-50">
-                            <a href="profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Mon Profile</a>
-                            <a href="QandA" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Q&A</a>
+    <!-- Navigation -->
+    <nav class="bg-black text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <!--                <img src="" alt="Tour de Maroc" class="h-8">-->
+                    <a href="#performances" class="nav-link hover:text-yellow-400" data-tab="performances">MES PERFORMANCES</a>
+                    <a href="#classements" class="nav-link hover:text-yellow-400" data-tab="classements">CLASSEMENTS</a>
+                </div>
+                <div class="relative">
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <button id="profileButton" class="text-white hover:bg-yellow-400 hover:text-black px-4 py-2 rounded transition-colors duration-300 text-sm flex items-center gap-1">
+                                <span>Tadej Pogačar</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="dropdownMenu" class="dropdown-menu absolute right-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[200px] z-50">
+                                <a href="/cycliste/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Mon Profile</a>
+                                <a href="QandA" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Q&A</a>
+                            </div>
                         </div>
+                        <a href="/Logout" class="bg-yellow-400 text-black px-4 py-2 rounded text-sm font-bold hover:bg-yellow-500 transition-colors duration-300">
+                            DÉCONNEXION
+                        </a>
                     </div>
-                    <button class="bg-yellow-400 text-black px-4 py-2 rounded text-sm font-bold hover:bg-yellow-500 transition-colors duration-300">
-                        DÉCONNEXION
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
