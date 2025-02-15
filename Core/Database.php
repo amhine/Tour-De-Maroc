@@ -3,6 +3,7 @@
 // l'Utilisation    Database::getConnection()->conn
 namespace Core;
 
+use Dotenv\Dotenv;
 use PDO, Exception;
 class Database
 {
@@ -14,11 +15,13 @@ class Database
     private $host;
 
     private function __construct() {
-        $this->user = 'postgres';
-        $this->password = 'hitler20.';
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
 
-        $this->dbname = 'tourmaroc';
-        $this->host = 'localhost';
+        $this->host = $_ENV['DB_HOST'];
+        $this->dbname = $_ENV['DB_NAME'];
+        $this->user = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASS'];
 
         try {
             $this->conn = new PDO("pgsql:host={$this->host};dbname={$this->dbname}", "{$this->user}", "{$this->password}");
