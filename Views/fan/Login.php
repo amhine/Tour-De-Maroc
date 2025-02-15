@@ -22,7 +22,7 @@
 
 
             <!-- Login Form Fields -->
-            <form class="space-y-4" action="/Login" method="POST">
+            <form class="space-y-4" action="/login" method="POST">
     <div>
         <label class="block text-sm mb-1">Adresse électronique ou numéro de téléphone</label>
         <input name="email" type="text" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400">
@@ -41,10 +41,10 @@
             <div class="text-center mt-6 space-y-2">
                 <div>
                     <span class="text-sm">Vous n'avez pas encore de compte ? </span>
-                    <a href="/Register" class="text-black font-bold">Inscription</a>
+                    <a href="/register" class="text-black font-bold">Inscription</a>
                 </div>
                 <div>
-                    <a href="/ForgetPassword" class="text-sm text-black hover:underline">Mot de passe oublié ?</a>
+                    <a href="/forgetPassword" class="text-sm text-black hover:underline">Mot de passe oublié ?</a>
                 </div>
             </div>
         </div>

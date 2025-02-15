@@ -140,10 +140,10 @@
                 <!-- Left Navigation -->
                 <div class="flex items-center space-x-6">
                     <a href="/" class="font-bold hover:text-yellow-400">HOME</a>
-                    <a href="/Parcours" class="font-bold hover:text-yellow-400">PARCOURS 2025</a>
-                    <a href="/Grande_Depart" class="font-bold hover:text-yellow-400">GRANDS DÉPARTS</a>
-                    <a href="/Culture" class="font-bold hover:text-yellow-400">CULTURE TOUR</a>
-                    <a href="/Video" class="font-bold hover:text-yellow-400">VIDÉOS</a>
+                    <a href="/parcours" class="font-bold hover:text-yellow-400">PARCOURS 2025</a>
+                    <a href="/grande_Depart" class="font-bold hover:text-yellow-400">GRANDS DÉPARTS</a>
+                    <a href="/culture" class="font-bold hover:text-yellow-400">CULTURE TOUR</a>
+                    <a href="/video" class="font-bold hover:text-yellow-400">VIDÉOS</a>
                 </div>
 
                 <!-- Right Navigation -->
@@ -157,9 +157,9 @@
                         <button class="text-xl">
                             <i class="fas fa-bars"></i>
                         </button>
-                        <button class="bg-black text-white px-4 py-1 text-xs font-bold hover:bg-yellow-400">
+                        <a class="bg-black text-white px-4 py-1 text-xs font-bold hover:bg-yellow-400" href="/login">
                             JE ME CONNECTE
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

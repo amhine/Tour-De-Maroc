@@ -43,7 +43,7 @@ $route->add('GET', '/forgetPassword', [AuthController::class, 'resetpasswordPage
 $route->add('POST', '/forgetPassword', [AuthController::class, 'SendResetToken']);
 $route->add('GET', '/resetPassword/{token}', [AuthController::class, 'ResetPasswordForm']);
 
-//categorie routes
+// categories routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
 $route->add('POST', '/categories', [CategorieController::class, 'store']);
 $route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
@@ -59,6 +59,7 @@ $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
+
 
 
 

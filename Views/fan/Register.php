@@ -30,7 +30,7 @@ $roles = $roleController->getRoles();
 
            
             <!-- Registration Form Fields -->
-            <form class="space-y-4" action="/Register" method="POST">
+            <form class="space-y-4" action="/register" method="POST">
     <div>
         <label class="block text-sm mb-1">Nom</label>
         <input type="text" name="nom" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-400" required>
