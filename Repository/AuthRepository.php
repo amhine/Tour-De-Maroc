@@ -41,6 +41,8 @@ class AuthRepository
                 }
                 return $user;
             }
+
+            
         } else {
             return null;
         }
@@ -78,6 +80,9 @@ class AuthRepository
         $this->session->remove('user_id');
         $this->session->remove('fk_role_id');
         $this->session->destroy();
+        header('Location: \Logout');
+        exit();
+
     }
 
     public function validateUser()

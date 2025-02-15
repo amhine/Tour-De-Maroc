@@ -43,7 +43,7 @@ $route->add('GET', '/Login', [AuthController::class, 'login']);
 $route->add('GET', '/Register', [AuthController::class, 'register']);
 $route->add('POST', '/Register', [AuthController::class, 'saveRegistration']); 
 $route->add('POST', '/Login', [AuthController::class, 'saveLogin']); 
-$route->add('GET', '/Logout', [AuthController::class, 'logout']);
+$route->add('GET', '/', [AuthController::class, 'logout']);
 $route->add('GET', '/Profile', [AuthController::class, 'profile']);
 $route->add('POST', '/Profile', [AuthController::class, 'update']);
 $route->add('GET', '/ForgetPassword', [AuthController::class, 'resetpasswordPage']);
@@ -68,16 +68,12 @@ $route->add('POST', '/photos/{id}', [PhotoController::class, 'delete']);
 
 
 // historique routes 
-// historique routes 
 $route->add('POST', '/historiques', [HistoriqueController::class, 'store']);
 $route->add('POST', '/historiques/{id}', [HistoriqueController::class, 'delete']);
 $route->add('GET', '/historiques', [HistoriqueController::class, 'getHistorique']);
 
 // admin routes
-$route->add('GET', '/dashboard', ['??', 'index']);
-$route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
-// admin routes
-$route->add('GET', '/dashboard', ['??', 'index']);
+// $route->add('GET', '/dashboard', ['??', 'index']);
 $route->add('GET', '/visitor', [VisitorController::class, 'showVisitors']);
 
 $method = $_SERVER['REQUEST_METHOD'];

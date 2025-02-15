@@ -1,7 +1,9 @@
 
 ## It's a must enter 'X' in the designated row to confirm or validate the action
 
-CHECK:               visiteurs:
+CHECK:         User Stories:
+                
+                visiteurs:
                je peux visualiser les étapes de la course "Exp : Calendrier des étapes et obtenir des informations détaillées [lieux, horaires, distances, etc.]
                les profils des cyclistes
                le classement général
