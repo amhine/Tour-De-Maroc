@@ -1,7 +1,12 @@
 <?php
+<<<<<<< HEAD
+
+=======
 session_start();
 require_once 'vendor/autoload.php';
+>>>>>>> db5ac6c42b7f49118f08db074c3f6b8ef66c18a5
 
+require_once __DIR__ . '/vendor/autoload.php';
 use Core\Router;
 use Controllers\HomeController;
 use Controllers\ParcoursController;
@@ -12,14 +17,13 @@ use Controllers\GdController;
 use Controllers\CultureController;
 use Controllers\AuthController;
 use Controllers\CategorieController;
+use Controllers\CommentsController;
 
 use Controllers\PhotoController;
 
 use Controllers\HistoriqueController;
 use Controllers\RoleController;
 
-
-require_once __DIR__ . '/vendor/autoload.php';
 
 $route = new Router();
 
@@ -56,9 +60,13 @@ $route->add('GET', '/ResetPassword/{token}', [AuthController::class, 'ResetPassw
 //categorie routes
 $route->add('GET', '/categories', [CategorieController::class, 'index']);
 $route->add('POST', '/categories', [CategorieController::class, 'store']);
-$route->add('POST', '/categories/{id}', [CategorieController::class, 'update']);
-$route->add('POST', '/categories/{id}', [CategorieController::class, 'destroy']);
+$route->add('POST', '/categories/update/{id}', [CategorieController::class, 'update']);
+$route->add('POST', '/categories/delete/{id}', [CategorieController::class, 'destroy']);
 
+// commmentes routes
+$route->add('GET' , '/comments' , [CommentsController::class , 'showDashboard']);
+$route->add('GET' , '/comments/delete/{id}' , [CommentsController::class , 'showDashboard']);
+$route->add('GET' , '/comments/update/{id}', [CommentsController::class, 'showDashboard']);
 
 // Cycliste routes
 $route->add('GET', '/cycliste/profile', [CyclisteController::class, 'profile']);
@@ -85,3 +93,14 @@ $uri = strtok($_SERVER['REQUEST_URI'], '?');
 
 
 $route->dispatch($method, $uri);
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+=======
+>>>>>>> db5ac6c42b7f49118f08db074c3f6b8ef66c18a5

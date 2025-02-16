@@ -1,6 +1,5 @@
 <?php
 
-// l'Utilisation    Database::getConnection()->conn
 namespace Core;
 
 use PDO, Exception;
@@ -15,7 +14,7 @@ class Database
 
     private function __construct() {
         $this->user = 'postgres';
-        $this->password = 'hitler20.';
+        $this->password = 'yasser';
         $this->dbname = 'tourmaroc';
         $this->host = 'localhost';
 
@@ -30,7 +29,7 @@ class Database
     }
     public static function getConnection() {
         if(self::$hasInstance === null) {
-          self::$hasInstance = new Database();
+        self::$hasInstance = new Database();
         }
         return self::$hasInstance;
     }
