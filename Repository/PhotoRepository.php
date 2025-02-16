@@ -10,6 +10,11 @@ class PhotoRepository implements IPhotoRepository
     private $db;
     private $table = "photos";
 
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+
     public function ajoute($instancePhoto)
     {
         $sql = "INSERT INTO $this->table (photo, fk_user_id) VALUES (:photo, :fk_user_id)";

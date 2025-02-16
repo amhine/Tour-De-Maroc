@@ -1,6 +1,5 @@
 <?php
 
-// l'Utilisation    Database::getConnection()->conn
 namespace Core;
 
 use PDO, Exception;

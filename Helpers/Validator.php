@@ -9,7 +9,7 @@ class Validator
     public static function ValidateData($data) {
 
         if(empty($data)) {
-            throw new Exception("Variable is Empty");
+            throw new Exception("Variable is Empty $data");
         }
         $data = trim($data);
         $data = stripslashes($data);
