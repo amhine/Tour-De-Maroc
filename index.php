@@ -43,6 +43,8 @@ $route->add('POST', '/categories/delete/{id}', [CategorieController::class, 'des
 
 // commmentes routes
 $route->add('GET' , '/comments' , [CommentsController::class , 'showDashboard']);
+$route->add('GET' , '/comments/delete/{id}' , [CommentsController::class , 'showDashboard']);
+$route->add('GET' , '/comments/update/{id}', [CommentsController::class, 'showDashboard']);
 
 
 
